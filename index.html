@@ -3179,3 +3179,694 @@ function clearCanvas(){
 
 </body>
 </html>
+<!-- =========================================================
+     HEALTH DECODED — ARTICLE LIBRARY
+     PASTE THIS ENTIRE SECTION AT THE VERY BOTTOM
+     OF YOUR EXISTING WEBSITE CODE
+========================================================= -->
+
+<style>
+
+/* ================================
+   ARTICLE LIBRARY
+================================ */
+
+.hd-library {
+    max-width: 1100px;
+    margin: 70px auto;
+    padding: 20px;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    color: #4b4038;
+}
+
+.hd-library-header {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.hd-library-logo {
+    font-size: 45px;
+    margin-bottom: 8px;
+}
+
+.hd-library-header h1 {
+    font-size: 38px;
+    margin: 5px 0;
+    color: #5f8068;
+}
+
+.hd-library-header p {
+    color: #7b6d63;
+    font-size: 17px;
+}
+
+
+/* ================================
+   CATEGORY
+================================ */
+
+.hd-category {
+    margin: 65px 0;
+}
+
+.hd-category-title {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.hd-category-title h2 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.hd-category-title p {
+    color: #7b6d63;
+    margin-top: 0;
+}
+
+
+/* CATEGORY COLORS */
+
+.hd-challenges .hd-category-title h2 {
+    color: #6f8f72;
+}
+
+.hd-mysteries .hd-category-title h2 {
+    color: #638ca3;
+}
+
+.hd-myths .hd-category-title h2 {
+    color: #a8798f;
+}
+
+.hd-careers .hd-category-title h2 {
+    color: #c39a52;
+}
+
+.hd-reflections .hd-category-title h2 {
+    color: #718a78;
+}
+
+
+/* ================================
+   YEAR
+================================ */
+
+.hd-year {
+    margin: 35px 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.hd-year h3 {
+    margin: 0;
+    font-size: 22px;
+    color: #5c554e;
+    white-space: nowrap;
+}
+
+.hd-year-line {
+    height: 2px;
+    background: #d9d2c7;
+    flex: 1;
+}
+
+
+/* ================================
+   ARTICLE GRID
+================================ */
+
+.hd-article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 22px;
+}
+
+
+/* ================================
+   ARTICLE CARD
+================================ */
+
+.hd-article-card {
+    background: #fffdf8;
+    border-radius: 22px;
+    padding: 25px;
+    border: 2px solid #e5ded3;
+    box-shadow: 0 5px 18px rgba(63, 69, 81, 0.08);
+    transition: all 0.25s ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.hd-article-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(63, 69, 81, 0.13);
+}
+
+
+/* ================================
+   CARD TOP
+================================ */
+
+.hd-card-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.hd-case-number {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #999087;
+    margin-bottom: 7px;
+}
+
+.hd-card-title {
+    font-size: 21px;
+    line-height: 1.35;
+    margin: 0 0 10px;
+    color: #4e6255;
+}
+
+.hd-card-date {
+    font-size: 13px;
+    color: #999087;
+    margin-bottom: 15px;
+}
+
+.hd-card-description {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #655d56;
+}
+
+
+/* ================================
+   READ BUTTON
+================================ */
+
+.hd-read-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 9px 18px;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+/* ================================
+   CARD CATEGORY COLORS
+================================ */
+
+.hd-challenge-card {
+    border-color: #d8e4d7;
+}
+
+.hd-challenge-card .hd-read-button {
+    background: #dcebdc;
+    color: #52735a;
+}
+
+
+.hd-mystery-card {
+    border-color: #d5e4ec;
+}
+
+.hd-mystery-card .hd-read-button {
+    background: #dcecf4;
+    color: #52758a;
+}
+
+
+.hd-myth-card {
+    border-color: #ead9e0;
+}
+
+.hd-myth-card .hd-read-button {
+    background: #f1dfe7;
+    color: #8c6172;
+}
+
+
+.hd-career-card {
+    border-color: #eee1c5;
+}
+
+.hd-career-card .hd-read-button {
+    background: #f5e9c9;
+    color: #94733c;
+}
+
+
+/* ================================
+   COMING SOON CARD
+================================ */
+
+.hd-coming-soon {
+    background: #f8f5ed;
+    border: 2px dashed #d8d0c4;
+    border-radius: 22px;
+    padding: 28px;
+    text-align: center;
+    color: #81786f;
+}
+
+.hd-coming-soon-icon {
+    font-size: 35px;
+}
+
+.hd-coming-soon strong {
+    display: block;
+    color: #686057;
+    margin: 8px 0;
+}
+
+
+/* ================================
+   BOTTOM MESSAGE
+================================ */
+
+.hd-library-footer {
+    text-align: center;
+    margin-top: 70px;
+    padding: 35px 20px;
+    background: #eef4ed;
+    border-radius: 25px;
+}
+
+.hd-library-footer h3 {
+    color: #5f8068;
+    font-size: 24px;
+}
+
+.hd-library-footer p {
+    color: #6e665e;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+    .hd-library-header h1 {
+        font-size: 30px;
+    }
+
+    .hd-category-title h2 {
+        font-size: 27px;
+    }
+
+    .hd-article-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+
+<div class="hd-library">
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<div class="hd-library-header">
+
+<div class="hd-library-logo">
+🧬🌱
+</div>
+
+<h1>
+The Health Decoded Library
+</h1>
+
+<p>
+Explore our challenges, mysteries, myths, careers, and reflections.
+</p>
+
+</div>
+
+
+
+<!-- =====================================================
+     🌱 CHALLENGES
+===================================================== -->
+
+<section class="hd-category hd-challenges">
+
+<div class="hd-category-title">
+
+<h2>
+🌱 Challenges
+</h2>
+
+<p>
+Monthly health, wellness, and self-care challenges.
+</p>
+
+</div>
+
+
+<!-- =========================
+     2026
+========================= -->
+
+<div class="hd-year">
+
+<h3>
+2026
+</h3>
+
+<div class="hd-year-line"></div>
+
+</div>
+
+
+<div class="hd-article-grid">
+
+
+<!-- =================================================
+     CASE 001
+     ADD NEW 2026 CHALLENGES ABOVE THIS CARD
+================================================= -->
+
+<a
+class="hd-article-card hd-challenge-card"
+href="https://healthdecodedblog.blogspot.com/p/monthly-challenge-decoded-issues.html"
+target="_blank"
+>
+
+<div class="hd-card-icon">
+🌱
+</div>
+
+<div class="hd-case-number">
+Case 001 • September 2026
+</div>
+
+<h3 class="hd-card-title">
+Feed One Knowledge, Learn Together
+</h3>
+
+<div class="hd-card-date">
+September 1, 2026
+</div>
+
+<p class="hd-card-description">
+Take something you have learned from Health Decoded and share it with someone else. Teach, learn, and create a ripple effect through your community.
+</p>
+
+<span class="hd-read-button">
+View Challenge →
+</span>
+
+</a>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     🔍 MYSTERIES
+===================================================== -->
+
+<section class="hd-category hd-mysteries">
+
+<div class="hd-category-title">
+
+<h2>
+🔍 Mysteries
+</h2>
+
+<p>
+Exploring the science behind everyday health questions.
+</p>
+
+</div>
+
+
+<!-- =========================
+     2026
+========================= -->
+
+<div class="hd-year">
+
+<h3>
+2026
+</h3>
+
+<div class="hd-year-line"></div>
+
+</div>
+
+
+<div class="hd-article-grid">
+
+
+<!-- =================================================
+     CASE 002
+     ADD NEW 2026 MYSTERIES ABOVE THIS CARD
+================================================= -->
+
+<a
+class="hd-article-card hd-mystery-card"
+href="https://healthdecodedblog.blogspot.com/p/healthcare-mystery-decoded-issues.html"
+target="_blank"
+>
+
+<div class="hd-card-icon">
+🔍
+</div>
+
+<div class="hd-case-number">
+Case 002 • September 2026
+</div>
+
+<h3 class="hd-card-title">
+Why Does Stress Make You Feel Sick?
+</h3>
+
+<div class="hd-card-date">
+September 1, 2026
+</div>
+
+<p class="hd-card-description">
+Ever wondered why stress can make your stomach hurt, your heart race, or make it harder to sleep? Explore the science behind the body's stress response.
+</p>
+
+<span class="hd-read-button">
+Read Mystery →
+</span>
+
+</a>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ❌ MYTHS
+===================================================== -->
+
+<section class="hd-category hd-myths">
+
+<div class="hd-category-title">
+
+<h2>
+❌ Myths
+</h2>
+
+<p>
+Separating health facts from fiction.
+</p>
+
+</div>
+
+
+<div class="hd-year">
+
+<h3>
+2026
+</h3>
+
+<div class="hd-year-line"></div>
+
+</div>
+
+
+<div class="hd-article-grid">
+
+
+<div class="hd-coming-soon">
+
+<div class="hd-coming-soon-icon">
+❌
+</div>
+
+<strong>
+Myth Decoded
+</strong>
+
+Coming September 2026
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     🩺 CAREERS
+===================================================== -->
+
+<section class="hd-category hd-careers">
+
+<div class="hd-category-title">
+
+<h2>
+🩺 Careers
+</h2>
+
+<p>
+Discovering the people and professions behind healthcare.
+</p>
+
+</div>
+
+
+<div class="hd-year">
+
+<h3>
+2026
+</h3>
+
+<div class="hd-year-line"></div>
+
+</div>
+
+
+<div class="hd-article-grid">
+
+
+<div class="hd-coming-soon">
+
+<div class="hd-coming-soon-icon">
+👩🏽‍⚕️
+</div>
+
+<strong>
+Career Decoded
+</strong>
+
+Coming September 2026
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     📖 REFLECTIONS
+===================================================== -->
+
+<section class="hd-category hd-reflections">
+
+<div class="hd-category-title">
+
+<h2>
+📖 Reflections
+</h2>
+
+<p>
+Personal reflections, lessons, and growth from the Health Decoded community.
+</p>
+
+</div>
+
+
+<div class="hd-article-grid">
+
+
+<a
+class="hd-article-card"
+href="https://healthdecodedblog.blogspot.com/p/reflection-channel.html"
+target="_blank"
+>
+
+<div class="hd-card-icon">
+📖
+</div>
+
+<div class="hd-case-number">
+Journal Decoded
+</div>
+
+<h3 class="hd-card-title">
+Reflection Journal
+</h3>
+
+<p class="hd-card-description">
+Share what you learned, how you participated, and how your Health Decoded journey has affected the way you think about health and wellness.
+</p>
+
+<span
+class="hd-read-button"
+style="background:#e5eee5;color:#5d7863;"
+>
+Write a Reflection →
+</span>
+
+</a>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<div class="hd-library-footer">
+
+<h3>
+🌱 Keep Exploring
+</h3>
+
+<p>
+New Health Decoded cases will be added throughout the year.
+</p>
+
+<p>
+<strong>
+Learn • Question • Discover • Share
+</strong>
+</p>
+
+</div>
+
+
+</div>
