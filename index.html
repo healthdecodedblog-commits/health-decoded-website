@@ -1,45 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Health Decoded | Exploring the Science Behind Everyday Health</title>
+<title>Health Decoded</title>
 
 <style>
 
 /* =========================================================
    HEALTH DECODED
-   MAIN WEBSITE STYLES
-   Pink • Sage • Cream • Blue • Yellow
-========================================================= */
+   MAIN WEBSITE STYLE
+   ========================================================= */
 
 :root{
-  --cream:#faf7ef;
-  --cream2:#fffdf8;
-  --pink:#e9b8c7;
-  --pink-dark:#b96f86;
-  --pink-light:#f8e5eb;
+  --pink:#f3c6d3;
+  --pink-dark:#c97991;
+  --pink-light:#fff1f5;
 
-  --sage:#a9bda2;
-  --sage-dark:#61795f;
-  --sage-light:#e9f0e5;
+  --green:#a9c4a2;
+  --green-dark:#648066;
+  --green-light:#eef6eb;
 
-  --blue:#a9cddd;
-  --blue-dark:#557f92;
-  --blue-light:#e7f3f7;
+  --cream:#fbf7ed;
+  --cream-dark:#eee5d4;
 
-  --yellow:#f2d98a;
-  --yellow-dark:#9b7b28;
-  --yellow-light:#fff7d8;
+  --blue:#b9dce5;
+  --blue-dark:#648f9a;
 
-  --brown:#4b4038;
-  --muted:#766c65;
+  --yellow:#f4df91;
+  --yellow-light:#fff8d9;
+
+  --brown:#55483f;
   --white:#ffffff;
 
-  --shadow:0 8px 25px rgba(75,64,56,.09);
-  --shadow-hover:0 12px 30px rgba(75,64,56,.14);
+  --shadow:0 8px 25px rgba(70,60,50,.10);
 }
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
 
 *{
   box-sizing:border-box;
@@ -51,471 +53,587 @@ html{
 
 body{
   margin:0;
-  padding:0;
+  min-height:100vh;
+
+  display:flex;
+  flex-direction:column;
+
   background:var(--cream);
   color:var(--brown);
+
   font-family:"Trebuchet MS",Arial,sans-serif;
   line-height:1.7;
 }
 
-a{
-  color:var(--pink-dark);
-  font-weight:bold;
-  text-decoration:none;
-}
-
-a:hover{
-  text-decoration:underline;
-}
-
-button{
+button,
+input,
+textarea{
   font-family:inherit;
 }
 
-/* =========================================================
-   TOP BAR
-========================================================= */
-
-.top-bar{
-  background:var(--sage-dark);
-  color:white;
-  text-align:center;
-  padding:8px 15px;
-  font-size:12px;
-  letter-spacing:1px;
-}
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-.header{
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,.94),
-      rgba(248,229,235,.92),
-      rgba(231,243,247,.9)
-    );
-  padding:35px 20px 25px;
-  text-align:center;
-  border-bottom:1px solid #eadfd6;
-}
-
-.logo-wrapper{
-  width:125px;
-  height:125px;
-  margin:0 auto 15px;
-  border-radius:50%;
-  overflow:hidden;
-  background:white;
-  box-shadow:var(--shadow);
-}
-
-.logo-wrapper iframe{
-  width:100%;
-  height:100%;
-  border:0;
-}
-
-.site-name{
-  font-size:44px;
-  margin:5px 0;
-  color:var(--sage-dark);
-  letter-spacing:-1px;
-}
-
-.site-tagline{
-  margin:5px auto;
-  color:var(--muted);
-  font-size:17px;
-  max-width:650px;
-}
-
-.founder-line{
-  margin-top:10px;
-  font-size:13px;
-  color:var(--pink-dark);
-  font-weight:bold;
-}
 
 /* =========================================================
    NAVIGATION
-========================================================= */
+   ========================================================= */
 
-.nav-wrapper{
+.navbar{
   position:sticky;
   top:0;
   z-index:999;
-  background:rgba(255,253,248,.97);
+
+  background:rgba(251,247,237,.96);
   backdrop-filter:blur(10px);
-  border-bottom:1px solid #e9dfd5;
-  box-shadow:0 3px 15px rgba(75,64,56,.06);
+
+  border-bottom:1px solid var(--cream-dark);
 }
 
-.nav{
+.nav-inner{
   max-width:1200px;
   margin:auto;
+  padding:12px 20px;
+
   display:flex;
-  justify-content:center;
   align-items:center;
-  gap:5px;
-  padding:10px;
-  overflow-x:auto;
+  justify-content:space-between;
+
+  gap:20px;
 }
 
-.nav button{
+.nav-logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+
+  text-decoration:none;
+  color:var(--brown);
+
+  font-weight:bold;
+  font-size:19px;
+}
+
+.nav-logo span{
+  font-size:25px;
+}
+
+.nav-links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:6px;
+}
+
+.nav-links button{
   border:0;
   background:transparent;
+
   color:var(--brown);
-  padding:10px 13px;
-  border-radius:25px;
+
+  padding:9px 13px;
+  border-radius:20px;
+
   cursor:pointer;
-  white-space:nowrap;
-  font-size:13px;
-  font-weight:bold;
-  transition:.25s;
+  font-size:14px;
 }
 
-.nav button:hover{
+.nav-links button:hover{
   background:var(--pink-light);
   color:var(--pink-dark);
 }
 
-.nav button.active{
-  background:var(--sage-dark);
-  color:white;
-}
 
 /* =========================================================
-   MAIN
-========================================================= */
-
-.main{
-  max-width:1100px;
-  margin:auto;
-  padding:35px 20px 70px;
-}
+   PAGE SYSTEM
+   ========================================================= */
 
 .page{
   display:none;
-  animation:fadeIn .35s ease;
+
+  width:100%;
+  max-width:1150px;
+
+  margin:0 auto;
+
+  padding:45px 20px 70px;
+
+  flex:0 0 auto;
 }
 
 .page.active{
   display:block;
 }
 
-@keyframes fadeIn{
-  from{
-    opacity:0;
-    transform:translateY(8px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
-
-/* =========================================================
-   TITLES
-========================================================= */
-
-.page-title{
-  text-align:center;
-  font-size:38px;
-  color:var(--sage-dark);
-  margin:10px 0 5px;
-}
-
-.page-subtitle{
-  text-align:center;
-  color:var(--muted);
-  max-width:700px;
-  margin:0 auto 35px;
-}
-
-.section-title{
-  color:var(--pink-dark);
-  font-size:28px;
-  margin-top:45px;
-  margin-bottom:8px;
-}
-
-.section-line{
-  width:50px;
-  height:4px;
-  border-radius:5px;
-  background:var(--sage);
-  margin-bottom:20px;
-}
 
 /* =========================================================
    HERO
-========================================================= */
+   ========================================================= */
 
 .hero{
-  background:linear-gradient(
-    135deg,
-    var(--pink-light),
-    var(--blue-light),
-    var(--cream2)
-  );
-  border-radius:30px;
-  padding:45px 35px;
   text-align:center;
+  padding:55px 20px 45px;
+}
+
+.hero-logo{
+  width:130px;
+  height:130px;
+
+  margin:0 auto 20px;
+
+  border-radius:50%;
+  overflow:hidden;
+
+  background:white;
+
   box-shadow:var(--shadow);
-  margin-bottom:40px;
+}
+
+.hero-logo iframe{
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+.eyebrow{
+  text-transform:uppercase;
+  letter-spacing:3px;
+
+  font-size:12px;
+
+  color:var(--pink-dark);
+  font-weight:bold;
 }
 
 .hero h1{
-  font-size:42px;
-  color:var(--sage-dark);
-  margin:5px 0 10px;
+  margin:10px 0;
+
+  font-size:52px;
+  line-height:1.1;
+
+  color:var(--green-dark);
 }
 
 .hero p{
-  max-width:750px;
-  margin:10px auto;
-  color:var(--muted);
+  max-width:720px;
+  margin:15px auto;
+
+  font-size:18px;
 }
 
-.hero-buttons{
-  margin-top:25px;
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:10px;
+.tagline{
+  color:var(--blue-dark);
+  font-weight:bold;
 }
+
 
 /* =========================================================
    BUTTONS
-========================================================= */
+   ========================================================= */
 
-.btn{
+.primary-btn,
+.secondary-btn{
   border:0;
-  padding:12px 22px;
   border-radius:30px;
+
+  padding:12px 22px;
+
   cursor:pointer;
-  font-weight:bold;
-  transition:.25s;
-  display:inline-block;
-}
-
-.btn:hover{
-  transform:translateY(-2px);
   text-decoration:none;
+
+  display:inline-block;
+
+  font-weight:bold;
+  margin:6px;
 }
 
-.btn-pink{
-  background:var(--pink);
-  color:#62434e;
+.primary-btn{
+  background:var(--pink-dark);
+  color:white;
 }
 
-.btn-green{
-  background:var(--sage);
-  color:#354633;
+.primary-btn:hover{
+  background:#b7657d;
 }
 
-.btn-blue{
-  background:var(--blue);
-  color:#365b6b;
+.secondary-btn{
+  background:var(--green);
+  color:white;
 }
 
-.btn-yellow{
-  background:var(--yellow);
-  color:#69551d;
+.secondary-btn:hover{
+  background:var(--green-dark);
 }
+
 
 /* =========================================================
-   CARDS
-========================================================= */
+   GENERAL SECTIONS
+   ========================================================= */
 
-.card-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:20px;
+.section-title{
+  text-align:center;
+  margin:60px 0 25px;
+}
+
+.section-title .small{
+  text-transform:uppercase;
+  letter-spacing:2px;
+
+  font-size:12px;
+
+  color:var(--pink-dark);
+}
+
+.section-title h2{
+  margin:5px 0;
+
+  color:var(--green-dark);
+
+  font-size:34px;
+}
+
+.section-title p{
+  max-width:650px;
+  margin:auto;
 }
 
 .card{
   background:white;
-  border-radius:22px;
-  padding:25px;
+
+  border-radius:24px;
+
+  padding:28px;
+
   box-shadow:var(--shadow);
-  border:1px solid #eee5db;
-  transition:.25s;
+
+  border:1px solid var(--cream-dark);
 }
 
-.card:hover{
-  transform:translateY(-4px);
-  box-shadow:var(--shadow-hover);
-}
-
-.card-icon{
-  font-size:38px;
-}
-
-.card h3{
-  color:var(--sage-dark);
-  margin:8px 0;
-}
-
-.card p{
-  color:var(--muted);
-  font-size:14px;
-}
 
 /* =========================================================
    WELCOME
-========================================================= */
+   ========================================================= */
 
-.welcome-box{
+.welcome{
   background:var(--pink-light);
-  border-left:6px solid var(--pink-dark);
-  border-radius:18px;
-  padding:25px;
-  margin:30px 0;
-}
 
-/* =========================================================
-   FEATURED CASES
-========================================================= */
+  border:1px solid #efd8df;
 
-.case-card{
-  border-radius:23px;
-  padding:25px;
-  box-shadow:var(--shadow);
-  margin-bottom:18px;
-}
+  border-radius:28px;
 
-.case-card.challenge{
-  background:var(--yellow-light);
-  border:1px solid #eee0a9;
-}
-
-.case-card.mystery{
-  background:var(--blue-light);
-  border:1px solid #cce4ec;
-}
-
-.case-card.myth{
-  background:var(--pink-light);
-  border:1px solid #efd3dc;
-}
-
-.case-card.career{
-  background:var(--sage-light);
-  border:1px solid #d5e2cf;
-}
-
-.case-number{
-  font-size:12px;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-  font-weight:bold;
-  color:var(--muted);
-}
-
-.case-card h3{
-  font-size:24px;
-  margin:5px 0;
-}
-
-/* =========================================================
-   CATEGORY BANNERS
-========================================================= */
-
-.category-banner{
   padding:35px;
-  border-radius:25px;
-  margin:30px 0;
 }
 
-.category-banner.green{
-  background:var(--sage-light);
+.welcome h2{
+  color:var(--pink-dark);
 }
 
-.category-banner.blue{
-  background:var(--blue-light);
-}
-
-.category-banner.pink{
-  background:var(--pink-light);
-}
-
-.category-banner.yellow{
-  background:var(--yellow-light);
-}
 
 /* =========================================================
-   MUSEUM
-========================================================= */
+   CONTENT CATEGORY CARDS
+   ========================================================= */
 
-.museum-grid{
+.category-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:25px;
-  align-items:start;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+  gap:18px;
 }
 
-.museum-item{
+.category-card{
   background:white;
-  padding:12px;
-  border-radius:20px;
+
+  padding:25px;
+
+  border-radius:24px;
+
   box-shadow:var(--shadow);
+
+  text-align:center;
+
+  transition:.2s;
 }
 
-.museum-item iframe{
+.category-card:hover{
+  transform:translateY(-5px);
+}
+
+.category-card .icon{
+  font-size:40px;
+}
+
+.category-card h3{
+  color:var(--green-dark);
+}
+
+
+/* =========================================================
+   FEATURED ARTICLE CARDS
+   ========================================================= */
+
+.article-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+  gap:22px;
+}
+
+.article-card{
+  background:white;
+
+  border-radius:25px;
+
+  padding:25px;
+
+  box-shadow:var(--shadow);
+
+  border-top:7px solid var(--pink);
+
+  transition:.2s;
+}
+
+.article-card:hover{
+  transform:translateY(-5px);
+}
+
+.article-card.challenge{
+  border-top-color:var(--green);
+}
+
+.article-card.mystery{
+  border-top-color:var(--blue);
+}
+
+.article-card.myth{
+  border-top-color:var(--yellow);
+}
+
+.article-card.career{
+  border-top-color:var(--pink-dark);
+}
+
+.article-label{
+  font-size:12px;
+
+  text-transform:uppercase;
+
+  letter-spacing:2px;
+
+  color:var(--pink-dark);
+
+  font-weight:bold;
+}
+
+.article-card h3{
+  color:var(--green-dark);
+
+  font-size:23px;
+}
+
+.read-btn{
+  border:0;
+
+  background:var(--green);
+
+  color:white;
+
+  border-radius:25px;
+
+  padding:10px 18px;
+
+  cursor:pointer;
+
+  font-weight:bold;
+}
+
+.read-btn:hover{
+  background:var(--green-dark);
+}
+
+
+/* =========================================================
+   YEAR SECTIONS
+   ========================================================= */
+
+.year-section{
+  margin:55px 0;
+}
+
+.year-title{
+  display:flex;
+
+  align-items:center;
+
+  gap:15px;
+
+  margin-bottom:22px;
+}
+
+.year-title h3{
+  font-size:25px;
+
+  color:var(--green-dark);
+
+  margin:0;
+}
+
+.year-line{
+  height:2px;
+
+  flex:1;
+
+  background:var(--green);
+}
+
+
+/* =========================================================
+   ARTICLE VIEW
+   ========================================================= */
+
+.article-view{
+  display:none;
+
+  background:white;
+
+  border-radius:30px;
+
+  padding:35px;
+
+  box-shadow:var(--shadow);
+
+  margin-top:30px;
+}
+
+.article-view.active{
+  display:block;
+}
+
+.article-view h1{
+  color:var(--green-dark);
+
+  font-size:38px;
+
+  line-height:1.2;
+}
+
+.article-view h2{
+  color:var(--pink-dark);
+
+  margin-top:35px;
+}
+
+.article-view h3{
+  color:var(--green-dark);
+}
+
+.article-view a{
+  color:#c46f88;
+
+  font-weight:bold;
+}
+
+.article-back{
+  border:0;
+
+  background:var(--blue);
+
+  color:var(--brown);
+
+  border-radius:25px;
+
+  padding:10px 18px;
+
+  cursor:pointer;
+
+  font-weight:bold;
+}
+
+
+/* =========================================================
+   MYSTERY ARTICLE IMAGES
+   ========================================================= */
+
+.mystery-image{
+  margin:25px 0;
+
+  text-align:center;
+}
+
+.mystery-image iframe{
+  border:0;
+
+  max-width:100%;
+
+  border-radius:18px;
+
+  box-shadow:0 5px 18px rgba(70,60,50,.08);
+}
+
+
+/* Images that sit beside text */
+
+.mystery-float-right{
+  float:right;
+
+  width:236px;
+
+  margin:5px 0 20px 25px;
+}
+
+.mystery-float-left{
+  float:left;
+
+  width:345px;
+
+  margin:5px 25px 20px 0;
+}
+
+.mystery-float-right iframe,
+.mystery-float-left iframe{
   width:100%;
   max-width:100%;
-  border:0;
-  border-radius:14px;
 }
 
-/* =========================================================
-   EMBEDS
-========================================================= */
 
-.embed-box{
-  background:white;
-  padding:15px;
-  border-radius:22px;
-  box-shadow:var(--shadow);
-  overflow:hidden;
+/* Clear floats after sections */
+
+.clearfix::after{
+  content:"";
+
+  display:block;
+
+  clear:both;
 }
 
-.embed-box iframe{
-  max-width:100%;
-}
 
 /* =========================================================
    ARCADE
-========================================================= */
+   ========================================================= */
 
-.arcade-header{
+.arcade-intro{
   text-align:center;
-  background:linear-gradient(
-    135deg,
-    var(--blue-light),
-    var(--sage-light)
-  );
-  padding:35px;
-  border-radius:28px;
-  margin-bottom:25px;
 }
 
-.arcade-games{
+.games{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:20px;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+  gap:22px;
 }
 
 .game-card{
   background:white;
+
   border-radius:25px;
+
   padding:25px;
+
   box-shadow:var(--shadow);
-  border:2px solid #e4eee3;
+
+  border:3px solid var(--green-light);
 }
 
 .game-icon{
@@ -523,225 +641,349 @@ button{
 }
 
 .game-title{
-  color:var(--sage-dark);
   font-size:22px;
+
+  color:var(--green-dark);
+
   font-weight:bold;
-  margin:8px 0;
 }
 
 .game-description{
-  color:var(--muted);
   font-size:14px;
 }
 
-/* BARS */
+.game-message{
+  background:var(--yellow-light);
+
+  border-radius:15px;
+
+  padding:14px;
+
+  margin:15px 0;
+}
+
+.game-button{
+  border:0;
+
+  background:var(--pink);
+
+  color:white;
+
+  padding:10px 18px;
+
+  border-radius:25px;
+
+  cursor:pointer;
+
+  margin:4px;
+}
+
+.game-button:hover{
+  background:var(--pink-dark);
+}
+
+
+/* =========================================================
+   WELLNESS BUDDY
+   ========================================================= */
+
+.pet{
+  font-size:65px;
+}
 
 .bar{
   height:16px;
-  background:#e3e3dd;
+
+  background:#e4eadf;
+
   border-radius:20px;
+
   overflow:hidden;
-  margin:5px 0 12px;
+
+  margin-bottom:10px;
 }
 
 .fill{
   height:100%;
-  background:var(--sage);
-  transition:.4s;
+
+  background:var(--green);
 }
 
-/* WHEEL */
 
-.wheel{
-  font-size:65px;
-  display:inline-block;
-  transition:2s;
+/* =========================================================
+   MUSEUM
+   ========================================================= */
+
+.museum-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+  gap:25px;
+
+  align-items:start;
 }
 
-.spin{
-  transform:rotate(1080deg);
-}
+.museum-item{
+  background:white;
 
-.result{
-  background:var(--cream);
-  border-radius:15px;
-  padding:12px;
-  margin-top:10px;
-}
-
-/* QUIZ */
-
-.quiz-answer{
-  width:100%;
-  margin:6px 0;
-}
-
-/* ESCAPE ROOM */
-
-.lock-box{
-  background:var(--yellow-light);
-  border:2px dashed var(--yellow-dark);
-  border-radius:20px;
-  padding:22px;
-}
-
-.lock-input{
-  padding:12px;
-  border:2px solid var(--yellow);
-  border-radius:12px;
-  width:140px;
-  text-align:center;
-  font-size:18px;
-}
-
-/* SKETCHBOOK */
-
-.sketchbook{
-  background:#fff;
-  border:2px solid var(--blue);
-  border-radius:20px;
   padding:15px;
+
+  border-radius:25px;
+
+  box-shadow:var(--shadow);
+
+  overflow:hidden;
 }
 
-canvas{
+.museum-item iframe{
   width:100%;
-  height:350px;
+
+  max-width:100%;
+
+  border:0;
+
+  border-radius:18px;
+}
+
+
+/* =========================================================
+   SPOTIFY
+   ========================================================= */
+
+.spotify-box{
+  max-width:800px;
+
+  margin:30px auto;
+}
+
+.spotify-box iframe{
+  width:100%;
+
+  border:0;
+
   border-radius:15px;
-  background:#fffdf8;
-  border:2px dashed #bdd3dc;
-  cursor:crosshair;
-  touch-action:none;
 }
 
-/* POLL */
-
-.poll-option{
-  display:block;
-  width:100%;
-  text-align:left;
-  margin:8px 0;
-}
 
 /* =========================================================
    TEAM
-========================================================= */
+   ========================================================= */
 
-.team-frame{
+.team-box{
+  max-width:700px;
+
+  margin:auto;
+
+  background:white;
+
+  padding:20px;
+
+  border-radius:25px;
+
+  box-shadow:var(--shadow);
+}
+
+.team-box iframe{
   width:100%;
-  height:650px;
+
+  min-height:650px;
+
   border:0;
-  border-radius:20px;
+
+  border-radius:18px;
 }
+
 
 /* =========================================================
-   INFO BOXES
-========================================================= */
+   JOURNAL / REFLECTIONS
+   ========================================================= */
 
-.info-box{
-  padding:25px;
-  border-radius:20px;
-  margin:25px 0;
+.journal-intro{
+  background:var(--green-light);
+
+  border-radius:25px;
+
+  padding:30px;
+
+  margin-bottom:30px;
 }
 
-.info-box.blue{
-  background:var(--blue-light);
+.comment-box{
+  background:white;
+
+  border-radius:25px;
+
+  padding:30px;
+
+  box-shadow:var(--shadow);
 }
 
-.info-box.green{
-  background:var(--sage-light);
+
+/* Webynize comment system */
+
+.wbnz-comments{
+  width:100%;
+
+  margin-top:25px;
 }
 
-.info-box.pink{
-  background:var(--pink-light);
-}
-
-.info-box.yellow{
-  background:var(--yellow-light);
-}
 
 /* =========================================================
-   NUMBERED STEPS
-========================================================= */
+   JOIN TEAM
+   ========================================================= */
 
-.step{
-  display:flex;
-  gap:15px;
-  padding:17px;
-  margin:10px 0;
-  border-radius:15px;
-  background:var(--cream2);
-  border:1px solid #eee5da;
+.volunteer-box{
+  background:white;
+
+  border-radius:28px;
+
+  padding:35px;
+
+  box-shadow:var(--shadow);
 }
 
-.step-number{
-  min-width:34px;
-  height:34px;
-  border-radius:50%;
-  background:var(--pink);
-  display:flex;
-  justify-content:center;
-  align-items:center;
+.role{
+  background:var(--cream);
+
+  border-radius:20px;
+
+  padding:22px;
+
+  margin:18px 0;
+}
+
+.role h3{
+  color:var(--green-dark);
+}
+
+.volunteer-box a{
+  color:#c46f88;
+
   font-weight:bold;
 }
 
+
+/* =========================================================
+   CONNECT
+   ========================================================= */
+
+.connect{
+  text-align:center;
+
+  background:var(--blue);
+
+  border-radius:30px;
+
+  padding:40px;
+}
+
+.connect a{
+  color:var(--brown);
+
+  font-weight:bold;
+}
+
+
 /* =========================================================
    FOOTER
-========================================================= */
+   ========================================================= */
 
-.footer{
-  background:var(--sage-dark);
-  color:white;
+footer{
+  width:100%;
+
+  background:var(--green-light);
+
   text-align:center;
-  padding:40px 20px;
+
+  padding:35px 20px;
+
+  margin-top:auto;
 }
 
-.footer h2{
-  margin:0 0 5px;
+footer strong{
+  color:var(--green-dark);
 }
 
-.footer p{
-  margin:5px;
-  opacity:.9;
-}
-
-.footer-links{
-  margin-top:20px;
-}
-
-.footer-links a{
-  color:white;
-  margin:0 8px;
-}
 
 /* =========================================================
    MOBILE
-========================================================= */
+   ========================================================= */
 
 @media(max-width:700px){
 
-  .site-name{
-    font-size:34px;
+  .nav-inner{
+    flex-direction:column;
+  }
+
+  .nav-links{
+    gap:2px;
+  }
+
+  .nav-links button{
+    font-size:12px;
+
+    padding:7px 9px;
   }
 
   .hero h1{
-    font-size:31px;
+    font-size:38px;
   }
 
-  .page-title{
+  .page{
+    padding:30px 14px 50px;
+  }
+
+  .welcome,
+  .card,
+  .article-view,
+  .volunteer-box{
+    padding:22px;
+  }
+
+  .mystery-float-right,
+  .mystery-float-left{
+    float:none;
+
+    width:100%;
+
+    margin:25px 0;
+
+    text-align:center;
+  }
+
+  .mystery-float-right iframe,
+  .mystery-float-left iframe{
+    width:auto;
+
+    max-width:100%;
+  }
+
+}
+
+
+/* =========================================================
+   SMALLER PHONES
+   ========================================================= */
+
+@media(max-width:450px){
+
+  .hero{
+    padding-left:5px;
+    padding-right:5px;
+  }
+
+  .hero h1{
+    font-size:34px;
+  }
+
+  .article-view h1{
     font-size:30px;
   }
 
-  .hero{
-    padding:30px 20px;
-  }
-
-  .nav{
-    justify-content:flex-start;
-  }
-
-  .nav button{
-    font-size:12px;
-    padding:8px 11px;
+  .section-title h2{
+    font-size:29px;
   }
 
 }
@@ -749,158 +991,129 @@ canvas{
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================================================
-TOP BAR
-========================================================= -->
 
-<div class="top-bar">
-🌿 HEALTH DECODED • EXPLORING THE SCIENCE BEHIND EVERYDAY HEALTH 🌿
-</div>
-
-
-<!-- =========================================================
-HEADER
-========================================================= -->
-
-<header class="header">
-
-  <div class="logo-wrapper">
-
-    <iframe
-      src="https://www.canva.com/design/DAHRkJIX7cc/l8vIeauHtk8kXapIOMW2qQ/view?embed"
-      allowfullscreen>
-    </iframe>
-
-  </div>
-
-  <div class="site-name">
-    Health Decoded
-  </div>
-
-  <div class="site-tagline">
-    Exploring the science behind everyday health.
-  </div>
-
-  <div class="founder-line">
-    Founded by Makayla Brown
-  </div>
-
-</header>
-
-
-<!-- =========================================================
+<!-- =======================================================
 NAVIGATION
-========================================================= -->
+======================================================= -->
 
-<div class="nav-wrapper">
+<nav class="navbar">
 
-<nav class="nav">
+<div class="nav-inner">
 
-<button class="active" onclick="showPage('home',this)">
+<a
+class="nav-logo"
+href="#"
+onclick="showPage('home');return false;">
+
+<span>🧬</span>
+
+Health Decoded
+
+</a>
+
+
+<div class="nav-links">
+
+<button onclick="showPage('home')">
 Home
 </button>
 
-<button onclick="showPage('museum',this)">
-🏛️ Museum
+<button onclick="showPage('challenges')">
+Challenges
 </button>
 
-<button onclick="showPage('arcade',this)">
-🎮 Arcade
+<button onclick="showPage('mysteries')">
+Mysteries
 </button>
 
-<button onclick="showPage('team',this)">
-👥 Our Team
+<button onclick="showPage('myths')">
+Myths
 </button>
 
-<button onclick="showPage('challenges',this)">
-🌱 Challenges
+<button onclick="showPage('careers')">
+Careers
 </button>
 
-<button onclick="showPage('mysteries',this)">
-🔍 Mysteries
+<button onclick="showPage('journal')">
+Reflections
 </button>
 
-<button onclick="showPage('myths',this)">
-❌ Myths
+<button onclick="showPage('team')">
+Join the Team
 </button>
 
-<button onclick="showPage('careers',this)">
-🩺 Careers
+<button onclick="showPage('connect')">
+Connect
 </button>
 
-<button onclick="showPage('reflections',this)">
-📖 Reflections
-</button>
+</div>
 
-<button onclick="showPage('join',this)">
-📝 Join the Team
-</button>
-
-<button onclick="showPage('connect',this)">
-🔗 Connect
-</button>
+</div>
 
 </nav>
 
-</div>
 
-
-<main class="main">
-
-
-<!-- =========================================================
+<!-- =======================================================
 HOME
-========================================================= -->
+======================================================= -->
 
 <section id="home" class="page active">
 
+
 <div class="hero">
 
-<div style="font-size:45px;">
-🧬 🌿 🔬
+<div class="eyebrow">
+Student-Led Health Education
 </div>
 
+
+<div class="hero-logo">
+
+<!-- ONE CIRCULAR CANVA LOGO -->
+
+<iframe
+src="https://www.canva.com/design/DAHRkJIX7cc/l8vIeauHtk8kXapIOMW2qQ/view?embed"
+allowfullscreen>
+</iframe>
+
+</div>
+
+
 <h1>
-Welcome to Health Decoded
+Health Decoded
 </h1>
+
+
+<p class="tagline">
+Exploring the science behind everyday health.
+</p>
+
 
 <p>
 A student-led health education platform where curiosity meets science.
+Learn, explore, question, and discover.
 </p>
 
-<p>
-Explore everyday health questions, discover the truth behind common health
-myths, learn about healthcare careers, participate in monthly challenges,
-and explore the science behind the human body.
-</p>
 
-<div class="hero-buttons">
+<button
+class="primary-btn"
+onclick="showPage('challenges')">
 
-<button class="btn btn-pink"
-onclick="showPage('mysteries',document.querySelectorAll('.nav button')[5])">
-Explore Mysteries
-</button>
+Explore Health Decoded
 
-<button class="btn btn-green"
-onclick="showPage('arcade',document.querySelectorAll('.nav button')[2])">
-Play in the Arcade
-</button>
-
-<button class="btn btn-blue"
-onclick="showPage('museum',document.querySelectorAll('.nav button')[1])">
-Visit the Museum
 </button>
 
 </div>
 
-</div>
 
+<!-- WELCOME -->
 
-<div class="welcome-box">
+<div class="welcome">
 
-<h2 style="color:var(--pink-dark);">
+<h2>
 ⭐ Welcome to Health Decoded ⭐
 </h2>
 
@@ -911,184 +1124,200 @@ experiences, discover the truth about common health myths, and learn more
 about the world of healthcare through engaging, evidence-based content.
 </p>
 
-</div>
-
-
-<h2 class="section-title">
-Our Mission
-</h2>
-
-<div class="section-line"></div>
-
-<p>
-Health Decoded is a digital health education blog created to make healthcare
-more engaging, understandable, and relevant for youth.
-</p>
-
-<p>
-Through curiosity-driven articles, evidence-based explanations, personal
-health experiments, monthly challenges, and educational resources, Health
-Decoded helps young people explore the science behind their everyday health.
-</p>
-
-<p>
-The goal is to transform healthcare from something that feels complicated or
-intimidating into something approachable and interesting.
-</p>
-
-
-<h2 class="section-title">
-Why Was Health Decoded Created?
-</h2>
-
-<div class="section-line"></div>
-
-<p>
-Healthcare impacts every part of our lives, but many people never learn how
-or why their bodies work the way they do. At the same time, teenagers are
-constantly exposed to health information online, where accurate facts and
-misinformation often exist side by side.
-</p>
-
-<p>
-Health Decoded was created to bridge the gap between complex healthcare
-information and everyday understanding.
-</p>
-
-
-<h2 class="section-title">
-Explore Our Categories
-</h2>
-
-<div class="section-line"></div>
-
-
-<div class="card-grid">
-
-<div class="card">
-<div class="card-icon">🔬</div>
-<h3>Everyday Health Mysteries</h3>
-<p>
-Exploring the science behind common experiences.
-</p>
-</div>
-
-<div class="card">
-<div class="card-icon">🧪</div>
-<h3>Health Experiments</h3>
-<p>
-Testing healthy habits and exploring their effects.
-</p>
-</div>
-
-<div class="card">
-<div class="card-icon">❌</div>
-<h3>Myth vs. Reality</h3>
-<p>
-Investigating popular health claims and explaining what research says.
-</p>
-</div>
-
-<div class="card">
-<div class="card-icon">🌱</div>
-<h3>Monthly Challenges</h3>
-<p>
-Encouraging readers to participate in simple, positive health goals.
-</p>
-</div>
-
-</div>
-
-
-<h2 class="section-title">
-More Than a Blog
-</h2>
-
-<div class="section-line"></div>
-
-<p>
-Health Decoded isn't just a place to read articles; it is a growing community
-built on curiosity, learning, and action.
-</p>
-
-<div class="card-grid">
-
-<div class="card">
-<div class="card-icon">🌱</div>
-<h3>Participate</h3>
-<p>
-Join interactive health, public health, and wellness challenges.
-</p>
-</div>
-
-<div class="card">
-<div class="card-icon">📚</div>
-<h3>Learn</h3>
-<p>
-Discover something new about your body, health, and healthcare.
-</p>
-</div>
-
-<div class="card">
-<div class="card-icon">📖</div>
-<h3>Reflect</h3>
-<p>
-Share thoughts and experiences through reflection journals.
-</p>
-</div>
-
-<div class="card">
-<div class="card-icon">💡</div>
-<h3>Contribute</h3>
-<p>
-Recommend topics, playlist songs, and ways to grow the community.
-</p>
-</div>
-
-</div>
-
-
-<!-- SEPTEMBER -->
-
-<h2 class="section-title">
-September 2026 Edition
-</h2>
-
-<div class="section-line"></div>
-
-<div class="case-card challenge">
-
-<div class="case-number">
-Case 001 • Monthly Challenge
-</div>
 
 <h3>
-🌱 Teach One, Learn Together
+Our Mission
 </h3>
 
 <p>
-Take something you've learned from Health Decoded and share it with someone
-else.
+Health Decoded is a digital health education blog created to make healthcare
+more engaging, understandable, and relevant for youth. Through
+curiosity-driven articles, evidence-based explanations, personal health
+experiments, monthly challenges, and educational resources, Health Decoded
+helps young people explore the science behind their everyday health.
 </p>
 
-<strong>
-Release Date: September 1, 2026
-</strong>
 
-<br><br>
+<p>
+The goal is to transform healthcare from something complicated or
+intimidating into something approachable and interesting.
+</p>
 
-<button class="btn btn-yellow"
-onclick="showPage('challenges',document.querySelectorAll('.nav button')[4])">
-Join the Challenge →
+</div>
+
+
+<!-- CATEGORIES -->
+
+<div class="section-title">
+
+<div class="small">
+Explore
+</div>
+
+<h2>
+What We Decode
+</h2>
+
+<p>
+Explore each part of Health Decoded and discover something new.
+</p>
+
+</div>
+
+
+<div class="category-grid">
+
+
+<div class="category-card">
+
+<div class="icon">
+🌱
+</div>
+
+<h3>
+Challenges
+</h3>
+
+<p>
+Monthly opportunities to learn, participate, and create positive change.
+</p>
+
+<button
+class="secondary-btn"
+onclick="showPage('challenges')">
+
+Explore
+
 </button>
 
 </div>
 
 
-<div class="case-card mystery">
+<div class="category-card">
 
-<div class="case-number">
-Case 002 • Mystery Decoded
+<div class="icon">
+🔍
+</div>
+
+<h3>
+Mysteries
+</h3>
+
+<p>
+The science behind everyday health questions.
+</p>
+
+<button
+class="secondary-btn"
+onclick="showPage('mysteries')">
+
+Explore
+
+</button>
+
+</div>
+
+
+<div class="category-card">
+
+<div class="icon">
+❌
+</div>
+
+<h3>
+Myths
+</h3>
+
+<p>
+Separating popular health beliefs from evidence.
+</p>
+
+<button
+class="secondary-btn"
+onclick="showPage('myths')">
+
+Explore
+
+</button>
+
+</div>
+
+
+<div class="category-card">
+
+<div class="icon">
+🩺
+</div>
+
+<h3>
+Careers
+</h3>
+
+<p>
+Discover the people and professions behind healthcare.
+</p>
+
+<button
+class="secondary-btn"
+onclick="showPage('careers')">
+
+Explore
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- FEATURED -->
+
+<div class="section-title">
+
+<div class="small">
+September 2026
+</div>
+
+<h2>
+Latest Cases
+</h2>
+
+</div>
+
+
+<div class="article-grid">
+
+
+<div class="article-card challenge">
+
+<div class="article-label">
+Case 001 • Challenge
+</div>
+
+<h3>
+🌱 Feed One Knowledge, Learn Together
+</h3>
+
+<p>
+Take something you've learned from Health Decoded and share it with
+someone else.
+</p>
+
+<button
+class="read-btn"
+onclick="openArticle('challenge001')">
+
+Read Challenge →
+
+</button>
+
+</div>
+
+
+<div class="article-card mystery">
+
+<div class="article-label">
+Case 002 • Mystery
 </div>
 
 <h3>
@@ -1096,232 +1325,63 @@ Case 002 • Mystery Decoded
 </h3>
 
 <p>
-Exploring the connection between the brain, stress response, and physical
-symptoms.
+Explore how stress communicates with different systems throughout the body.
 </p>
 
-<strong>
-Release Date: September 1, 2026
-</strong>
+<button
+class="read-btn"
+onclick="openArticle('mystery002')">
+
+Read Mystery →
+
+</button>
+
+</div>
 
 </div>
 
 
-<div class="case-card myth">
-
-<div class="case-number">
-Case 003 • Myth Decoded
-</div>
-
-<h3>
-❌ Can You “Catch Up” on Lost Sleep?
-</h3>
-
-<strong>
-Release Date: September 8, 2026
-</strong>
-
-</div>
-
-
-<div class="case-card career">
-
-<div class="case-number">
-Case 004 • Career Decoded
-</div>
-
-<h3>
-🩺 What Does a School Psychologist Really Do?
-</h3>
-
-<strong>
-Release Date: September 15, 2026
-</strong>
-
-</div>
-
-
-<div class="info-box blue">
-
-<h2>
-Want to Get Involved?
-</h2>
-
-<ul>
-<li>Participate in challenges.</li>
-<li>Write reflections.</li>
-<li>Read and comment on articles.</li>
-<li>Submit article ideas.</li>
-<li>Recommend playlist songs.</li>
-<li>Share Health Decoded with your peers.</li>
-</ul>
-
-</div>
-
-</section>
-
-
-<!-- =========================================================
-MUSEUM
-========================================================= -->
-
-<section id="museum" class="page">
-
-<h1 class="page-title">
-🏛️ Health Decoded Museum
-</h1>
-
-<p class="page-subtitle">
-A visual collection celebrating the human body, healthcare, science,
-curiosity, and the world of health.
-</p>
-
-
-<div class="category-banner green">
-
-<h2>
-Welcome to the Museum
-</h2>
-
-<p>
-Take a visual journey through different aspects of health and healthcare.
-More exhibits can be added as Health Decoded grows.
-</p>
-
-</div>
-
-
-<div class="museum-grid">
-
-
-<div class="museum-item">
-<iframe
-src="https://assets.pinterest.com/ext/embed.html?id=1125618500622892915"
-height="588"
-scrolling="no">
-</iframe>
-</div>
-
-
-<div class="museum-item">
-<iframe
-src="https://assets.pinterest.com/ext/embed.html?id=170433167143523150"
-height="445"
-scrolling="no">
-</iframe>
-</div>
-
-
-<div class="museum-item">
-<iframe
-src="https://assets.pinterest.com/ext/embed.html?id=638314947748304356"
-height="437"
-scrolling="no">
-</iframe>
-</div>
-
-
-<div class="museum-item">
-<iframe
-src="https://assets.pinterest.com/ext/embed.html?id=717127940718092422"
-height="352"
-scrolling="no">
-</iframe>
-</div>
-
-
-<div class="museum-item">
-<iframe
-src="https://assets.pinterest.com/ext/embed.html?id=140878294563567957"
-height="397"
-scrolling="no">
-</iframe>
-</div>
-
-
-<div class="museum-item">
-<iframe
-src="https://assets.pinterest.com/ext/embed.html?id=476889048033254831"
-height="445"
-scrolling="no">
-</iframe>
-</div>
-
-
-<div class="museum-item">
-<iframe
-src="https://assets.pinterest.com/ext/embed.html?id=39195459254029282"
-height="295"
-scrolling="no">
-</iframe>
-</div>
-
-
-<div class="museum-item">
-<iframe
-src="https://assets.pinterest.com/ext/embed.html?id=3799980930035645"
-height="295"
-scrolling="no">
-</iframe>
-</div>
-
-
-<div class="museum-item">
-<iframe
-src="https://assets.pinterest.com/ext/embed.html?id=715157615868994169"
-height="560"
-scrolling="no">
-</iframe>
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =========================================================
+<!-- =======================================================
 ARCADE
-========================================================= -->
+======================================================= -->
 
-<section id="arcade" class="page">
+<div class="section-title">
 
-<div class="arcade-header">
-
-<div style="font-size:55px;">
-🎮 🧬 🌱
+<div class="small">
+Interactive
 </div>
 
-<h1 class="page-title">
-Health Decoded Arcade
-</h1>
+<h2>
+🎮 Health Decoded Arcade
+</h2>
 
 <p>
-A place to learn, relax, create, and challenge your brain through interactive
-health activities.
+Learn, play, and challenge yourself.
 </p>
 
 </div>
 
 
-<div class="arcade-games">
+<div class="games">
 
 
 <!-- WELLNESS BUDDY -->
 
 <div class="game-card">
 
-<div class="game-icon">🌱</div>
+<div class="game-icon">
+🌱
+</div>
 
 <div class="game-title">
 Wellness Buddy
 </div>
 
 <p class="game-description">
-Take care of your health companion by practicing healthy habits.
+Take care of your health companion.
 </p>
 
-<div style="font-size:60px;text-align:center;">
+<div class="pet" id="pet">
 🧬
 </div>
 
@@ -1329,31 +1389,76 @@ Take care of your health companion by practicing healthy habits.
 Your buddy is ready!
 </p>
 
+
+<div>
 ❤️ Health
+
 <div class="bar">
-<div id="healthBar" class="fill" style="width:70%"></div>
+
+<div
+class="fill"
+id="healthBar"
+style="width:70%">
 </div>
 
+</div>
+</div>
+
+
+<div>
 😊 Happiness
+
 <div class="bar">
-<div id="happyBar" class="fill" style="width:70%"></div>
+
+<div
+class="fill"
+id="happyBar"
+style="width:70%">
 </div>
 
+</div>
+</div>
+
+
+<div>
 ⚡ Energy
+
 <div class="bar">
-<div id="energyBar" class="fill" style="width:70%"></div>
+
+<div
+class="fill"
+id="energyBar"
+style="width:70%">
 </div>
 
-<button class="btn btn-pink" onclick="feedBuddy()">
+</div>
+</div>
+
+
+<button
+class="game-button"
+onclick="feedBuddy()">
+
 🍎 Feed
+
 </button>
 
-<button class="btn btn-blue" onclick="waterBuddy()">
+
+<button
+class="game-button"
+onclick="waterBuddy()">
+
 💧 Water
+
 </button>
 
-<button class="btn btn-green" onclick="exerciseBuddy()">
-🏃 Exercise
+
+<button
+class="game-button"
+onclick="exerciseBuddy()">
+
+🏃 Move
+
 </button>
 
 </div>
@@ -1363,22 +1468,32 @@ Your buddy is ready!
 
 <div class="game-card">
 
-<div class="game-icon">💌</div>
+<div class="game-icon">
+💌
+</div>
 
 <div class="game-title">
 Daily Dose
 </div>
 
-<p class="game-description">
-Receive a positive health reminder to brighten your day.
+<p>
+Receive a positive health reminder.
 </p>
 
-<div class="result" id="compliment">
+<div
+class="game-message"
+id="dailyMessage">
+
 Click below!
+
 </div>
 
-<button class="btn btn-pink" onclick="generateMessage()">
+<button
+class="game-button"
+onclick="generateMessage()">
+
 Get Reminder
+
 </button>
 
 </div>
@@ -1388,26 +1503,36 @@ Get Reminder
 
 <div class="game-card">
 
-<div class="game-icon">🎡</div>
+<div class="game-icon">
+🎡
+</div>
 
 <div class="game-title">
 Wellness Wheel
 </div>
 
-<p class="game-description">
+<p>
 Spin for a healthy challenge.
 </p>
 
-<div id="wheel" class="wheel">
+<div style="font-size:70px">
 🎡
 </div>
 
-<div id="wheelResult" class="result">
+<div
+class="game-message"
+id="wheelResult">
+
 Ready?
+
 </div>
 
-<button class="btn btn-green" onclick="spinWheel()">
+<button
+class="game-button"
+onclick="spinWheel()">
+
 Spin
+
 </button>
 
 </div>
@@ -1417,32 +1542,34 @@ Spin
 
 <div class="game-card">
 
-<div class="game-icon">🔍</div>
+<div class="game-icon">
+🔎
+</div>
 
 <div class="game-title">
 Medical Mystery
 </div>
 
-<p class="game-description">
-Solve health clues and discover how the human body works.
+<p>
+Solve the clue.
 </p>
 
-<h3 id="mysteryTitle">
-Medical Mystery #1
-</h3>
-
-<p id="mysteryQuestion">
+<h3 id="mysteryGameQuestion">
 I pump blood throughout the body. What am I?
-</p>
+</h3>
 
 <div id="mysteryAnswers"></div>
 
-<p id="mysteryResult">
+<p id="mysteryGameResult">
 Choose an answer!
 </p>
 
-<button class="btn btn-blue" onclick="nextMystery()">
+<button
+class="game-button"
+onclick="nextGameMystery()">
+
 Next Mystery
+
 </button>
 
 </div>
@@ -1452,15 +1579,13 @@ Next Mystery
 
 <div class="game-card">
 
-<div class="game-icon">🧬</div>
-
-<div class="game-title">
-Health Quiz Challenge
+<div class="game-icon">
+🧠
 </div>
 
-<p class="game-description">
-Test your healthcare knowledge and earn points!
-</p>
+<div class="game-title">
+Health Quiz
+</div>
 
 <h3 id="quizQuestion">
 Question
@@ -1470,96 +1595,22 @@ Question
 
 <p>
 Score:
-<strong id="score">0</strong>
+<strong id="quizScore">
+0
+</strong>
 </p>
+
+<button
+class="game-button"
+onclick="nextQuizQuestion()">
+
+Next Question
+
+</button>
 
 <p id="quizResult">
 Choose an answer!
 </p>
-
-<button class="btn btn-green" onclick="nextQuestion()">
-Next Question
-</button>
-
-</div>
-
-
-<!-- ESCAPE ROOM -->
-
-<div class="game-card">
-
-<div class="game-icon">🔐</div>
-
-<div class="game-title">
-Mini Health Escape Room
-</div>
-
-<p class="game-description">
-Solve the clues to unlock the mystery code.
-</p>
-
-<div class="lock-box">
-
-<p>
-🧠 Clue #1:
-</p>
-
-<p>
-How many chambers does the human heart have?
-</p>
-
-<p>
-🫀 × ?
-</p>
-
-<input
-id="escapeAnswer"
-class="lock-input"
-type="number"
-placeholder="Code">
-
-<br>
-
-<button
-class="btn btn-yellow"
-onclick="checkEscape()">
-Unlock
-</button>
-
-<p id="escapeResult">
-The room is locked...
-</p>
-
-</div>
-
-</div>
-
-
-<!-- SKETCHBOOK -->
-
-<div class="game-card">
-
-<div class="game-icon">🎨</div>
-
-<div class="game-title">
-Health Sketchbook
-</div>
-
-<p class="game-description">
-Draw something inspired by health, science, or the human body.
-</p>
-
-<div class="sketchbook">
-
-<canvas id="drawingCanvas"></canvas>
-
-<button
-class="btn btn-pink"
-onclick="clearCanvas()">
-Clear
-</button>
-
-</div>
 
 </div>
 
@@ -1568,2045 +1619,441 @@ Clear
 
 <div class="game-card">
 
-<div class="game-icon">📊</div>
+<div class="game-icon">
+📊
+</div>
 
 <div class="game-title">
 Health Decoded Poll
 </div>
 
-<p class="game-description">
-What would you want to learn about next?
+<p>
+What would you like to see more of?
 </p>
-
-<div id="pollArea">
 
 <button
-class="btn btn-blue poll-option"
-onclick="vote('🧠 Mental Health')">
-🧠 Mental Health
-</button>
+class="game-button"
+onclick="votePoll('mysteries')">
 
-<button
-class="btn btn-green poll-option"
-onclick="vote('🧬 Human Body')">
-🧬 Human Body
-</button>
-
-<button
-class="btn btn-pink poll-option"
-onclick="vote('🩺 Healthcare Careers')">
-🩺 Healthcare Careers
-</button>
-
-<button
-class="btn btn-yellow poll-option"
-onclick="vote('🌿 Wellness')">
-🌿 Wellness
-</button>
-
-</div>
-
-<p id="pollResult">
-Your vote will appear here!
-</p>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-<!-- =========================================================
-OUR TEAM
-========================================================= -->
-
-<section id="team" class="page">
-
-<h1 class="page-title">
-👥 Meet the Health Decoded Team
-</h1>
-
-<p class="page-subtitle">
-Meet the students and contributors helping Health Decoded grow.
-</p>
-
-
-<div class="embed-box">
-
-<iframe
-class="team-frame"
-src="https://www.canva.com/design/DAHRkDkYYbo/A1Esb07vUUP7vleGfPjQ4Q/view?embed"
-allowfullscreen>
-</iframe>
-
-</div>
-
-
-<div class="info-box pink">
-
-<h2>
-About the Founder
-</h2>
-
-<p>
-Health Decoded was founded by Makayla Brown as a student-led platform
-designed to make health education more engaging, understandable, and
-accessible to young people.
-</p>
-
-</div>
-
-</section>
-
-
-<!-- =========================================================
-CHALLENGES
-========================================================= -->
-
-<section id="challenges" class="page">
-
-<h1 class="page-title">
-🌱 Challenges
-</h1>
-
-<p class="page-subtitle">
-Monthly Health and Self-Care Challenges
-</p>
-
-
-<div style="text-align:center;margin-bottom:30px;">
-
-<iframe
-src="https://assets.pinterest.com/ext/embed.html?id=282600945364774782"
-height="445"
-width="345"
-frameborder="0"
-scrolling="no">
-</iframe>
-
-</div>
-
-
-<div class="category-banner yellow">
-
-<h2>
-🧪 Challenge Decoded Instructions
-</h2>
-
-<h3>
-Learn. Participate. Create Change.
-</h3>
-
-<p>
-Challenge Decoded encourages readers to build healthier habits through
-interactive monthly challenges.
-</p>
-
-</div>
-
-
-<div class="info-box blue">
-
-<h3>
-📅 Frequency
-</h3>
-
-<p>
-Monthly
-</p>
-
-</div>
-
-
-<h2 class="section-title">
-How It Works
-</h2>
-
-<div class="section-line"></div>
-
-
-<div class="step">
-<div class="step-number">1</div>
-<div>
-Participate in the current monthly challenge.
-</div>
-</div>
-
-<div class="step">
-<div class="step-number">2</div>
-<div>
-Reflect on your experience through the Quick Share comments or the Reflection
-Journal at the end of the month.
-</div>
-</div>
-
-<div class="step">
-<div class="step-number">3</div>
-<div>
-Or DM us on Instagram at <strong>@healthdecoded.blog</strong> about what you
-did during the challenge.
-</div>
-</div>
-
-<div class="step">
-<div class="step-number">4</div>
-<div>
-Share pictures if you are comfortable.
-</div>
-</div>
-
-
-<div class="info-box green">
-
-<h3>
-🌱 Community Impact
-</h3>
-
-<p>
-At the end of each challenge, Health Decoded may share community results,
-trends, and reflection journals to show how small actions can create
-meaningful changes.
-</p>
-
-</div>
-
-</section>
-
-
-<!-- =========================================================
-MYSTERIES
-========================================================= -->
-
-<section id="mysteries" class="page">
-
-<h1 class="page-title">
 🔍 Mysteries
-</h1>
 
-<p class="page-subtitle">
-Healthcare Mysteries Decoded Articles
-</p>
+</button>
 
+<button
+class="game-button"
+onclick="votePoll('myths')">
 
-<div style="text-align:center;margin-bottom:30px;">
-
-<iframe
-src="https://assets.pinterest.com/ext/embed.html?id=693413673921220577"
-height="445"
-width="345"
-frameborder="0"
-scrolling="no">
-</iframe>
-
-</div>
-
-
-<div class="category-banner blue">
-
-<h2>
-🔍 Healthcare Mystery Decoded
-</h2>
-
-<h3>
-Exploring the Science Behind Everyday Health Questions
-</h3>
-
-<p>
-Healthcare Mystery Decoded investigates the fascinating science behind
-health-related topics we experience every day.
-</p>
-
-<p>
-These articles break down biological processes and explain the “why” behind
-common health questions.
-</p>
-
-</div>
-
-
-<div class="info-box green">
-
-<h3>
-📅 Frequency
-</h3>
-
-<p>
-Once per month
-</p>
-
-</div>
-
-
-<div class="case-card mystery">
-
-<div class="case-number">
-Case 002
-</div>
-
-<h2>
-Why Does Stress Make You Feel Sick?
-</h2>
-
-<p>
-<strong>Release Date:</strong> September 1, 2026
-</p>
-
-<p>
-Explore how stress can affect the brain, nervous system, muscles, digestive
-system, and sleep.
-</p>
-
-</div>
-
-
-<p>
-Through science, research, and curiosity, members and readers can discover
-how amazing the human body truly is.
-</p>
-
-</section>
-
-
-<!-- =========================================================
-MYTHS
-========================================================= -->
-
-<section id="myths" class="page">
-
-<h1 class="page-title">
 ❌ Myths
-</h1>
 
-<p class="page-subtitle">
-Healthcare Myths Decoded Articles
-</p>
+</button>
 
+<button
+class="game-button"
+onclick="votePoll('careers')">
 
-<div style="text-align:center;margin-bottom:30px;">
-
-<iframe
-src="https://assets.pinterest.com/ext/embed.html?id=829154981398603262"
-height="357"
-width="345"
-frameborder="0"
-scrolling="no">
-</iframe>
-
-</div>
-
-
-<div class="category-banner pink">
-
-<h2>
-❌ Myth Decoded
-</h2>
-
-<h3>
-Separating Health Facts From Fiction
-</h3>
-
-<p>
-Myth Decoded explores common health beliefs and investigates what science
-actually says.
-</p>
-
-</div>
-
-
-<div class="info-box yellow">
-
-<h3>
-📅 Frequency
-</h3>
-
-<p>
-Monthly
-</p>
-
-</div>
-
-
-<div class="case-card myth">
-
-<div class="case-number">
-Case 003
-</div>
-
-<h2>
-Can You “Catch Up” on Lost Sleep?
-</h2>
-
-<p>
-<strong>Release Date:</strong> September 8, 2026
-</p>
-
-</div>
-
-
-<p>
-By decoding myths, readers learn to question information and better
-understand evidence-based health information.
-</p>
-
-</section>
-
-
-<!-- =========================================================
-CAREERS
-========================================================= -->
-
-<section id="careers" class="page">
-
-<h1 class="page-title">
 🩺 Careers
-</h1>
 
-<p class="page-subtitle">
-Healthcare Careers Decoded Articles
+</button>
+
+<button
+class="game-button"
+onclick="votePoll('challenges')">
+
+🌱 Challenges
+
+</button>
+
+<div
+class="game-message"
+id="pollResult">
+
+Vote to see your selection!
+
+</div>
+
+</div>
+
+
+<!-- ESCAPE ROOM -->
+
+<div class="game-card">
+
+<div class="game-icon">
+🔐
+</div>
+
+<div class="game-title">
+Mini Health Escape Room
+</div>
+
+<p>
+Can you solve the clue and unlock the next step?
 </p>
 
+<div
+class="game-message"
+id="escapeQuestion">
 
-<div style="text-align:center;margin-bottom:30px;">
+You discover a locked health lab. The code begins with the number of
+chambers in the human heart.
+
+</div>
+
+<input
+id="escapeAnswer"
+type="number"
+placeholder="Enter number"
+style="padding:12px;border-radius:20px;border:1px solid #ddd;width:100%;">
+
+<button
+class="game-button"
+onclick="checkEscape()">
+
+Unlock
+
+</button>
+
+<p id="escapeResult"></p>
+
+</div>
+
+</div>
+
+
+<!-- =======================================================
+MUSEUM
+======================================================= -->
+
+<div class="section-title">
+
+<div class="small">
+Visual Learning
+</div>
+
+<h2>
+🏛️ Health Decoded Museum
+</h2>
+
+<p>
+A growing collection of health, science, and healthcare visuals.
+</p>
+
+</div>
+
+
+<div class="museum-grid">
+
+
+<div class="museum-item">
 
 <iframe
-src="https://assets.pinterest.com/ext/embed.html?id=937874691135287124"
-height="364"
-width="345"
-frameborder="0"
+src="https://assets.pinterest.com/ext/embed.html?id=1125618500622892915"
+height="588"
 scrolling="no">
 </iframe>
 
 </div>
 
 
-<div class="category-banner green">
-
-<h2>
-👩🏽‍⚕️ Career Decoded
-</h2>
-
-<h3>
-Discovering the People Behind Healthcare
-</h3>
-
-<p>
-Career Decoded introduces readers to healthcare professions and the
-individuals who dedicate their work to helping others.
-</p>
-
-</div>
-
-
-<div class="info-box blue">
-
-<h3>
-📅 Frequency
-</h3>
-
-<p>
-Monthly
-</p>
-
-</div>
-
-
-<div class="case-card career">
-
-<div class="case-number">
-Case 004
-</div>
-
-<h2>
-What Does a School Psychologist Really Do?
-</h2>
-
-<p>
-<strong>Release Date:</strong> September 15, 2026
-</p>
-
-</div>
-
-
-<p>
-Whether readers are interested in healthcare careers or simply curious about
-the field, Career Decoded helps members explore the many ways people can
-make an impact.
-</p>
-
-</section>
-
-
-<!-- =========================================================
-REFLECTIONS
-========================================================= -->
-
-<section id="reflections" class="page">
-
-<h1 class="page-title">
-📖 Reflections
-</h1>
-
-<p class="page-subtitle">
-Reflection Channel
-</p>
-
-
-<div style="text-align:center;margin-bottom:30px;">
+<div class="museum-item">
 
 <iframe
-src="https://assets.pinterest.com/ext/embed.html?id=1031887333382116092"
+src="https://assets.pinterest.com/ext/embed.html?id=170433167143523150"
 height="445"
-width="345"
-frameborder="0"
 scrolling="no">
 </iframe>
 
 </div>
 
 
-<div class="category-banner pink">
-
-<h2>
-📖 Journal Decoded
-</h2>
-
-<h3>
-Personal Reflections, Lessons, and Growth
-</h3>
-
-<p>
-Journal Decoded is run by YOU.
-</p>
-
-</div>
-
-
-<p>
-This journal can be used to share personal experiences, reflections, and
-lessons learned throughout the Health Decoded journey.
-</p>
-
-<p>
-Journal Decoded hopes to connect health knowledge with real-life experiences
-that you would like to share with other members and readers of the blog.
-</p>
-
-
-<div class="info-box green">
-
-<h3>
-📅 Frequency
-</h3>
-
-<p>
-End of each monthly challenge or open for responses at any time.
-</p>
-
-</div>
-
-
-<div class="info-box yellow">
-
-<h3>
-✏️ How to Participate
-</h3>
-
-<p>
-Make your reflection posts in the comment section under the appropriate
-Reflection post.
-</p>
-
-<p>
-Please and thank you!
-</p>
-
-<p style="font-size:22px;">
-Happy Writing! ✨
-</p>
-
-</div>
-
-</section>
-
-
-<!-- =========================================================
-JOIN TEAM
-========================================================= -->
-
-<section id="join" class="page">
-
-<h1 class="page-title">
-📝 Join the Team
-</h1>
-
-<p class="page-subtitle">
-Become a Health Decoded Volunteer
-</p>
-
-
-<div style="text-align:center;margin-bottom:30px;">
+<div class="museum-item">
 
 <iframe
-src="https://assets.pinterest.com/ext/embed.html?id=919086236477447221"
-height="532"
-width="345"
-frameborder="0"
+src="https://assets.pinterest.com/ext/embed.html?id=638314947748304356"
+height="437"
 scrolling="no">
 </iframe>
 
 </div>
 
 
-<div class="category-banner green">
+<div class="museum-item">
 
-<h2>
-Want to do more than read?
-</h2>
-
-<p>
-Join Health Decoded as a volunteer and help create health education content
-for other curious learners.
-</p>
+<iframe
+src="https://assets.pinterest.com/ext/embed.html?id=717127940718092422"
+height="352"
+scrolling="no">
+</iframe>
 
 </div>
 
 
-<h2 class="section-title">
-Volunteer Opportunities
-</h2>
+<div class="museum-item">
 
-<div class="section-line"></div>
-
-
-<div class="card-grid">
-
-
-<div class="card">
-
-<div class="card-icon">
-📝
-</div>
-
-<h3>
-Health Article Writer
-</h3>
-
-<p>
-Create articles for Health Decoded's pages, including:
-</p>
-
-<ul>
-<li>Health myths</li>
-<li>Health mysteries</li>
-</ul>
-
-<p>
-<strong>
-5 hours of community service may be given for one article under this role.
-</strong>
-</p>
+<iframe
+src="https://assets.pinterest.com/ext/embed.html?id=140878294563567957"
+height="397"
+scrolling="no">
+</iframe>
 
 </div>
 
 
-<div class="card">
+<div class="museum-item">
 
-<div class="card-icon">
-🎤
-</div>
-
-<h3>
-Healthcare Career Interview Volunteer
-</h3>
-
-<p>
-Create a Career Decoded feature by researching a healthcare career,
-developing interview questions, contacting a healthcare professional,
-conducting an interview, and creating an article combining career research
-with a professional Q&A.
-</p>
-
-<p>
-<strong>
-10 hours of community service may be given for one article under this role.
-</strong>
-</p>
+<iframe
+src="https://assets.pinterest.com/ext/embed.html?id=476889048033254831"
+height="445"
+scrolling="no">
+</iframe>
 
 </div>
 
 
-</div>
+<div class="museum-item">
 
-
-<h2 class="section-title">
-How Volunteering Works
-</h2>
-
-<div class="section-line"></div>
-
-
-<div class="step">
-<div class="step-number">1</div>
-<div>
-Complete the Health Decoded Volunteer Application and Submission Form.
-</div>
-</div>
-
-
-<div class="step">
-<div class="step-number">2</div>
-<div>
-Read the article formatting guidelines before creating an article.
-</div>
-</div>
-
-
-<div class="step">
-<div class="step-number">3</div>
-<div>
-Submit your work for review.
-</div>
-</div>
-
-
-<div class="step">
-<div class="step-number">4</div>
-<div>
-Wait for confirmation before considering the article officially published.
-</div>
-</div>
-
-
-<div class="info-box yellow">
-
-<h3>
-Volunteer Application
-</h3>
-
-<p>
-<a href="https://forms.gle/cKAZSyMg3qe4jg1a8"
-target="_blank">
-Complete the Volunteer Application →
-</a>
-</p>
+<iframe
+src="https://assets.pinterest.com/ext/embed.html?id=39195459254029282"
+height="295"
+scrolling="no">
+</iframe>
 
 </div>
 
 
-<div class="info-box blue">
+<div class="museum-item">
 
-<h3>
-Article Formatting & Guidelines
-</h3>
-
-<p>
-Please read the full document before writing your article.
-</p>
-
-<p>
-<a href="https://docs.google.com/document/d/1xA24Pm9DPYdQq-PtrU3hJc7MAys8WGyiUcg0zv6wjFA/edit?usp=sharing"
-target="_blank">
-Read the Article Guidelines →
-</a>
-</p>
+<iframe
+src="https://assets.pinterest.com/ext/embed.html?id=3799980930035645"
+height="295"
+scrolling="no">
+</iframe>
 
 </div>
 
 
-<div class="info-box pink">
+<div class="museum-item">
 
-<h3>
-Important Review Information
-</h3>
-
-<p>
-All articles will be reviewed before publication to ensure accuracy,
-quality, and alignment with Health Decoded's mission.
-</p>
-
-<p>
-Submitted articles may not be published if the topic is already covered,
-the article does not meet content guidelines, the article was fully written
-with AI, or the research used is not credible or appropriate.
-</p>
+<iframe
+src="https://assets.pinterest.com/ext/embed.html?id=715157615868994169"
+height="560"
+scrolling="no">
+</iframe>
 
 </div>
 
 
-<div class="info-box green">
+<!-- NEW MUSEUM PICTURES -->
 
-<h3>
-Volunteer Hours
-</h3>
+<div class="museum-item">
 
-<p>
-Volunteers are responsible for tracking their own volunteer hours and should
-keep records of articles, research, interviews, submission dates, publication
-confirmation, and hours.
-</p>
-
-<p>
-If volunteer-hour verification is needed, contact:
-</p>
-
-<p>
-<a href="mailto:healthdecoded.blog@gmail.com">
-healthdecoded.blog@gmail.com
-</a>
-</p>
+<iframe
+src="https://assets.pinterest.com/ext/embed.html?id=1100145015216698849"
+height="532"
+scrolling="no">
+</iframe>
 
 </div>
 
 
-<div class="category-banner yellow">
+<div class="museum-item">
 
-<h2>
-📅 Official Volunteer Launch
-</h2>
-
-<p>
-Health Decoded will officially begin accepting volunteers starting in
-<strong>September 2026.</strong>
-</p>
+<iframe
+src="https://assets.pinterest.com/ext/embed.html?id=978477456542304165"
+height="532"
+scrolling="no">
+</iframe>
 
 </div>
 
-</section>
+
+<div class="museum-item">
+
+<iframe
+src="https://assets.pinterest.com/ext/embed.html?id=561894491033355838"
+height="445"
+scrolling="no">
+</iframe>
+
+</div>
 
 
-<!-- =========================================================
-CONNECT
-========================================================= -->
+<div class="museum-item">
 
-<section id="connect" class="page">
+<iframe
+src="https://assets.pinterest.com/ext/embed.html?id=708965166375841884"
+height="445"
+scrolling="no">
+</iframe>
 
-<h1 class="page-title">
-🔗 Connect With Us
-</h1>
+</div>
 
-<p class="page-subtitle">
-Stay curious. Stay connected. Keep learning.
-</p>
+</div>
 
 
-<div class="hero">
+<!-- PLAYLIST -->
 
-<div style="font-size:50px;">
-🌱 🧬 💗
+<div class="section-title">
+
+<div class="small">
+Listen
 </div>
 
 <h2>
-Stay Curious With Us
-</h2>
-
-<p>
-Follow Health Decoded for new articles, health discoveries, monthly
-challenges, and healthcare exploration.
-</p>
-
-</div>
-
-
-<div class="card-grid">
-
-
-<div class="card">
-
-<div class="card-icon">
-📱
-</div>
-
-<h3>
-Follow Health Decoded
-</h3>
-
-<p>
-Follow <strong>@healthdecoded.blog</strong> on Instagram and TikTok.
-</p>
-
-<a
-href="https://linktr.ee/healthdecoded.blog"
-target="_blank"
-class="btn btn-pink">
-Visit Our Linktree →
-</a>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">
-📧
-</div>
-
-<h3>
-Email Us
-</h3>
-
-<p>
-healthdecoded.blog@gmail.com
-</p>
-
-<a
-href="mailto:healthdecoded.blog@gmail.com"
-class="btn btn-blue">
-Send an Email →
-</a>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">
-💡
-</div>
-
-<h3>
-Submit an Idea
-</h3>
-
-<p>
-Have an article idea, feedback, or something you want to see on Health
-Decoded?
-</p>
-
-<a
-href="https://forms.gle/RWZeV4Ss7ztJpPMg8"
-target="_blank"
-class="btn btn-green">
-Article Ideas →
-</a>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">
-🎧
-</div>
-
-<h3>
-Recommend a Song
-</h3>
-
-<p>
-Help shape the Health Decoded playlist.
-</p>
-
-<a
-href="https://forms.gle/vNECPAkDi77g6LGS6"
-target="_blank"
-class="btn btn-yellow">
-Recommend a Song →
-</a>
-
-</div>
-
-
-<div class="card">
-
-<div class="card-icon">
-💬
-</div>
-
-<h3>
-Blog Feedback
-</h3>
-
-<p>
-Tell us what you think about Health Decoded.
-</p>
-
-<a
-href="https://forms.gle/f3tnGFh8ZE96kab59"
-target="_blank"
-class="btn btn-pink">
-Give Feedback →
-</a>
-
-</div>
-
-</div>
-
-
-<!-- SPOTIFY -->
-
-<h2 class="section-title">
 🎧 Health Decoded Playlist
 </h2>
 
-<div class="section-line"></div>
+<p>
+Songs recommended by the Health Decoded community.
+</p>
 
-<div class="embed-box">
+</div>
+
+
+<div class="spotify-box">
 
 <iframe
-style="border-radius:12px"
-src="https://open.spotify.com/embed/playlist/7osu3xwDJl1fWN8vXgEgX7?utm_source=generator&si=72910312b04149d0"
-width="100%"
+src="https://open.spotify.com/embed/playlist/7osu3xwDJl1fWN8vXgEgX7?utm_source=generator"
 height="352"
-frameborder="0"
-allowfullscreen=""
+allowfullscreen
 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
 loading="lazy">
 </iframe>
 
 </div>
 
-
 </section>
 
 
-</main>
+<!-- =======================================================
+CHALLENGES
+======================================================= -->
 
+<section
+id="challenges"
+class="page">
 
-<!-- =========================================================
-FOOTER
-========================================================= -->
+<div class="section-title">
 
-<footer class="footer">
+<div class="small">
+Challenge Decoded
+</div>
 
 <h2>
-Health Decoded 🧬
+🌱 Monthly Health Challenges
 </h2>
 
 <p>
-Exploring the science behind everyday health.
+Learn. Participate. Create Change.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+How Challenge Decoded Works
+</h3>
+
+<p>
+Challenge Decoded encourages readers to build healthy habits through
+interactive monthly challenges. Each challenge focuses on a different
+aspect of wellness and gives participants an opportunity to participate,
+reflect, and learn.
 </p>
 
 <p>
-Founded by Makayla Brown
-</p>
-
-<div class="footer-links">
-
-<a href="#" onclick="showPage('home',document.querySelector('.nav button'))">
-Home
-</a>
-
-<a href="#" onclick="showPage('museum',document.querySelectorAll('.nav button')[1])">
-Museum
-</a>
-
-<a href="#" onclick="showPage('arcade',document.querySelectorAll('.nav button')[2])">
-Arcade
-</a>
-
-<a href="#" onclick="showPage('join',document.querySelectorAll('.nav button')[9])">
-Join the Team
-</a>
-
-</div>
-
-<p style="margin-top:25px;font-size:12px;">
-© 2026 Health Decoded
-</p>
-
-</footer>
-
-
-<!-- =========================================================
-JAVASCRIPT
-========================================================= -->
-
-<script>
-
-/* =========================================================
-   PAGE NAVIGATION
-========================================================= */
-
-function showPage(pageId,button){
-
-  document.querySelectorAll(".page").forEach(function(page){
-    page.classList.remove("active");
-  });
-
-  var page=document.getElementById(pageId);
-
-  if(page){
-    page.classList.add("active");
-  }
-
-  document.querySelectorAll(".nav button").forEach(function(btn){
-    btn.classList.remove("active");
-  });
-
-  if(button){
-    button.classList.add("active");
-  }
-
-  window.scrollTo({
-    top:0,
-    behavior:"smooth"
-  });
-
-}
-
-
-/* =========================================================
-   WELLNESS BUDDY
-========================================================= */
-
-let health=70;
-let happiness=70;
-let energy=70;
-
-function updateBuddy(){
-
-  document.getElementById("healthBar").style.width=health+"%";
-  document.getElementById("happyBar").style.width=happiness+"%";
-  document.getElementById("energyBar").style.width=energy+"%";
-
-}
-
-function buddyMessage(text){
-
-  document.getElementById("buddyMessage").innerHTML=text;
-
-}
-
-function feedBuddy(){
-
-  health=Math.min(100,health+5);
-  happiness=Math.min(100,happiness+10);
-  energy=Math.max(0,energy-5);
-
-  updateBuddy();
-
-  buddyMessage("Your buddy enjoyed a healthy snack! 🍎");
-
-}
-
-function waterBuddy(){
-
-  health=Math.min(100,health+10);
-  energy=Math.min(100,energy+5);
-
-  updateBuddy();
-
-  buddyMessage("Your buddy feels refreshed! 💧");
-
-}
-
-function exerciseBuddy(){
-
-  happiness=Math.min(100,happiness+10);
-  energy=Math.max(0,energy-10);
-
-  updateBuddy();
-
-  buddyMessage("Your buddy got moving! 🏃");
-
-}
-
-
-/* =========================================================
-   DAILY DOSE
-========================================================= */
-
-let messages=[
-
-"Small healthy habits can create meaningful changes. 🌱",
-
-"Your body works hard every day. Take care of it. 💚",
-
-"Learning about health gives you power. 🧬",
-
-"Every question can help you grow. ✨",
-
-"Your health journey matters. 💗",
-
-"Stay curious about your body and the world around you. 🔬",
-
-"Science starts with asking questions. 🌿"
-
-];
-
-function generateMessage(){
-
-  let random=Math.floor(Math.random()*messages.length);
-
-  document.getElementById("compliment").innerHTML=
-  messages[random];
-
-}
-
-
-/* =========================================================
-   WELLNESS WHEEL
-========================================================= */
-
-let wellnessIdeas=[
-
-"💧 Drink some water",
-
-"🍎 Try a nutritious snack",
-
-"🧘 Take a few calm breaths",
-
-"🚶 Take a short walk",
-
-"📚 Learn one health fact",
-
-"😴 Think about your sleep routine",
-
-"🌿 Spend a few minutes outside",
-
-"💬 Teach someone a health fact"
-
-];
-
-function spinWheel(){
-
-  let wheel=document.getElementById("wheel");
-
-  wheel.classList.add("spin");
-
-  setTimeout(function(){
-
-    wheel.classList.remove("spin");
-
-    let random=
-    Math.floor(Math.random()*wellnessIdeas.length);
-
-    document.getElementById("wheelResult").innerHTML=
-    wellnessIdeas[random];
-
-  },2000);
-
-}
-
-
-/* =========================================================
-   MEDICAL MYSTERY
-========================================================= */
-
-let mysteries=[
-
-{
-question:"I pump blood throughout the body. What am I?",
-answers:["🫁 Lungs","❤️ Heart","🧠 Brain","🦴 Bones"],
-correct:1
-},
-
-{
-question:"I help you breathe by bringing oxygen into your body. What am I?",
-answers:["🫁 Lungs","❤️ Heart","🦷 Teeth","🦴 Bones"],
-correct:0
-},
-
-{
-question:"I control thoughts, memories, and movement. What am I?",
-answers:["🧠 Brain","❤️ Heart","Kidney","Liver"],
-correct:0
-},
-
-{
-question:"I protect your body from germs and infections. What system am I?",
-answers:["Digestive System","🛡️ Immune System","Skeletal System","Muscular System"],
-correct:1
-},
-
-{
-question:"I help break down food and absorb nutrients. What system am I?",
-answers:["Digestive System","Nervous System","Skeletal System","Respiratory System"],
-correct:0
-}
-
-];
-
-let mysteryIndex=0;
-
-function loadMystery(){
-
-  let mystery=mysteries[mysteryIndex];
-
-  document.getElementById("mysteryTitle").innerHTML=
-  "Medical Mystery #"+(mysteryIndex+1);
-
-  document.getElementById("mysteryQuestion").innerHTML=
-  mystery.question;
-
-  let area=document.getElementById("mysteryAnswers");
-
-  area.innerHTML="";
-
-  mystery.answers.forEach(function(answer,index){
-
-    let button=document.createElement("button");
-
-    button.className="btn btn-pink";
-    button.style.width="100%";
-    button.style.margin="5px 0";
-
-    button.innerHTML=answer;
-
-    button.onclick=function(){
-
-      checkMystery(index);
-
-    };
-
-    area.appendChild(button);
-
-  });
-
-}
-
-function checkMystery(answer){
-
-  let mystery=mysteries[mysteryIndex];
-
-  if(answer===mystery.correct){
-
-    document.getElementById("mysteryResult").innerHTML=
-    "✅ Correct! You decoded the mystery! 🧬";
-
-  }else{
-
-    document.getElementById("mysteryResult").innerHTML=
-    "❌ Not quite! Keep investigating. 🔍";
-
-  }
-
-}
-
-function nextMystery(){
-
-  mysteryIndex++;
-
-  if(mysteryIndex>=mysteries.length){
-
-    mysteryIndex=0;
-
-  }
-
-  document.getElementById("mysteryResult").innerHTML=
-  "Choose an answer!";
-
-  loadMystery();
-
-}
-
-loadMystery();
-
-
-/* =========================================================
-   HEALTH QUIZ
-========================================================= */
-
-let quizQuestions=[
-
-{
-question:"How many hours of sleep do teenagers generally need?",
-answers:["4–5 hours","8–10 hours","12–14 hours","2 hours"],
-correct:1
-},
-
-{
-question:"Which organ pumps blood through the body?",
-answers:["Lungs","Brain","Heart","Kidney"],
-correct:2
-},
-
-{
-question:"Which nutrient helps build and repair body tissues?",
-answers:["Protein","Water","Sugar","Salt"],
-correct:0
-},
-
-{
-question:"Which habit supports mental wellness?",
-answers:["Ignoring stress","Getting enough rest","Never taking breaks","Skipping meals"],
-correct:1
-},
-
-{
-question:"Which system helps your body fight infections?",
-answers:["Digestive System","Immune System","Skeletal System","Muscular System"],
-correct:1
-}
-
-];
-
-let quizIndex=0;
-let score=0;
-let quizAnswered=false;
-
-function loadQuestion(){
-
-  let question=quizQuestions[quizIndex];
-
-  document.getElementById("quizQuestion").innerHTML=
-  question.question;
-
-  let area=document.getElementById("quizAnswers");
-
-  area.innerHTML="";
-
-  quizAnswered=false;
-
-  question.answers.forEach(function(answer,index){
-
-    let button=document.createElement("button");
-
-    button.className="btn btn-blue quiz-answer";
-
-    button.innerHTML=answer;
-
-    button.onclick=function(){
-
-      if(quizAnswered){
-        return;
-      }
-
-      quizAnswered=true;
-
-      if(index===question.correct){
-
-        score++;
-
-        document.getElementById("score").innerHTML=
-        score;
-
-        document.getElementById("quizResult").innerHTML=
-        "✅ Correct! Great job!";
-
-      }else{
-
-        document.getElementById("quizResult").innerHTML=
-        "❌ Not quite! Keep learning!";
-
-      }
-
-    };
-
-    area.appendChild(button);
-
-  });
-
-}
-
-function nextQuestion(){
-
-  quizIndex++;
-
-  if(quizIndex>=quizQuestions.length){
-
-    quizIndex=0;
-    score=0;
-
-    document.getElementById("score").innerHTML=0;
-
-  }
-
-  document.getElementById("quizResult").innerHTML=
-  "Choose an answer!";
-
-  loadQuestion();
-
-}
-
-loadQuestion();
-
-
-/* =========================================================
-   ESCAPE ROOM
-========================================================= */
-
-function checkEscape(){
-
-  let answer=
-  document.getElementById("escapeAnswer").value;
-
-  let result=
-  document.getElementById("escapeResult");
-
-  if(answer==="4"){
-
-    result.innerHTML=
-    "🔓 UNLOCKED! You solved the first clue! 🧬";
-
-  }else if(answer===""){
-
-    result.innerHTML=
-    "🔐 Enter your answer first!";
-
-  }else{
-
-    result.innerHTML=
-    "🔒 The code didn't work. Look at the clue again!";
-
-  }
-
-}
-
-
-/* =========================================================
-   POLL
-========================================================= */
-
-function vote(choice){
-
-  document.getElementById("pollResult").innerHTML=
-  "💗 Thanks for voting! You chose <strong>"+
-  choice+
-  "</strong>.";
-
-}
-
-
-/* =========================================================
-   SKETCHBOOK
-========================================================= */
-
-const canvas=
-document.getElementById("drawingCanvas");
-
-const ctx=
-canvas.getContext("2d");
-
-let drawing=false;
-
-function resizeCanvas(){
-
-  let rect=canvas.getBoundingClientRect();
-
-  let oldImage=null;
-
-  if(canvas.width>0 && canvas.height>0){
-
-    try{
-      oldImage=canvas.toDataURL();
-    }catch(e){}
-
-  }
-
-  canvas.width=rect.width;
-  canvas.height=350;
-
-  ctx.lineWidth=3;
-  ctx.lineCap="round";
-  ctx.strokeStyle="#61795f";
-
-}
-
-resizeCanvas();
-
-window.addEventListener("resize",resizeCanvas);
-
-function getPosition(e){
-
-  let rect=canvas.getBoundingClientRect();
-
-  let x;
-  let y;
-
-  if(e.touches && e.touches.length){
-
-    x=e.touches[0].clientX-rect.left;
-    y=e.touches[0].clientY-rect.top;
-
-  }else{
-
-    x=e.clientX-rect.left;
-    y=e.clientY-rect.top;
-
-  }
-
-  return {x:x,y:y};
-
-}
-
-function startDrawing(e){
-
-  drawing=true;
-
-  let pos=getPosition(e);
-
-  ctx.beginPath();
-  ctx.moveTo(pos.x,pos.y);
-
-}
-
-function draw(e){
-
-  if(!drawing){
-    return;
-  }
-
-  e.preventDefault();
-
-  let pos=getPosition(e);
-
-  ctx.lineTo(pos.x,pos.y);
-  ctx.stroke();
-
-}
-
-function stopDrawing(){
-
-  drawing=false;
-  ctx.beginPath();
-
-}
-
-canvas.addEventListener("mousedown",startDrawing);
-canvas.addEventListener("mousemove",draw);
-canvas.addEventListener("mouseup",stopDrawing);
-canvas.addEventListener("mouseleave",stopDrawing);
-
-canvas.addEventListener("touchstart",startDrawing);
-canvas.addEventListener("touchmove",draw);
-canvas.addEventListener("touchend",stopDrawing);
-
-function clearCanvas(){
-
-  ctx.clearRect(
-    0,
-    0,
-    canvas.width,
-    canvas.height
-  );
-
-}
-
-</script>
-
-</body>
-</html>
-<!-- =========================================================
-     HEALTH DECODED — ARTICLE LIBRARY
-     PASTE THIS ENTIRE SECTION AT THE VERY BOTTOM
-     OF YOUR EXISTING WEBSITE CODE
-========================================================= -->
-
-<style>
-
-/* ================================
-   ARTICLE LIBRARY
-================================ */
-
-.hd-library {
-    max-width: 1100px;
-    margin: 70px auto;
-    padding: 20px;
-    font-family: "Trebuchet MS", Arial, sans-serif;
-    color: #4b4038;
-}
-
-.hd-library-header {
-    text-align: center;
-    margin-bottom: 55px;
-}
-
-.hd-library-logo {
-    font-size: 45px;
-    margin-bottom: 8px;
-}
-
-.hd-library-header h1 {
-    font-size: 38px;
-    margin: 5px 0;
-    color: #5f8068;
-}
-
-.hd-library-header p {
-    color: #7b6d63;
-    font-size: 17px;
-}
-
-
-/* ================================
-   CATEGORY
-================================ */
-
-.hd-category {
-    margin: 65px 0;
-}
-
-.hd-category-title {
-    text-align: center;
-    margin-bottom: 35px;
-}
-
-.hd-category-title h2 {
-    font-size: 32px;
-    margin-bottom: 8px;
-}
-
-.hd-category-title p {
-    color: #7b6d63;
-    margin-top: 0;
-}
-
-
-/* CATEGORY COLORS */
-
-.hd-challenges .hd-category-title h2 {
-    color: #6f8f72;
-}
-
-.hd-mysteries .hd-category-title h2 {
-    color: #638ca3;
-}
-
-.hd-myths .hd-category-title h2 {
-    color: #a8798f;
-}
-
-.hd-careers .hd-category-title h2 {
-    color: #c39a52;
-}
-
-.hd-reflections .hd-category-title h2 {
-    color: #718a78;
-}
-
-
-/* ================================
-   YEAR
-================================ */
-
-.hd-year {
-    margin: 35px 0 18px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.hd-year h3 {
-    margin: 0;
-    font-size: 22px;
-    color: #5c554e;
-    white-space: nowrap;
-}
-
-.hd-year-line {
-    height: 2px;
-    background: #d9d2c7;
-    flex: 1;
-}
-
-
-/* ================================
-   ARTICLE GRID
-================================ */
-
-.hd-article-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    gap: 22px;
-}
-
-
-/* ================================
-   ARTICLE CARD
-================================ */
-
-.hd-article-card {
-    background: #fffdf8;
-    border-radius: 22px;
-    padding: 25px;
-    border: 2px solid #e5ded3;
-    box-shadow: 0 5px 18px rgba(63, 69, 81, 0.08);
-    transition: all 0.25s ease;
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-.hd-article-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 10px 25px rgba(63, 69, 81, 0.13);
-}
-
-
-/* ================================
-   CARD TOP
-================================ */
-
-.hd-card-icon {
-    font-size: 40px;
-    margin-bottom: 12px;
-}
-
-.hd-case-number {
-    font-size: 12px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #999087;
-    margin-bottom: 7px;
-}
-
-.hd-card-title {
-    font-size: 21px;
-    line-height: 1.35;
-    margin: 0 0 10px;
-    color: #4e6255;
-}
-
-.hd-card-date {
-    font-size: 13px;
-    color: #999087;
-    margin-bottom: 15px;
-}
-
-.hd-card-description {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #655d56;
-}
-
-
-/* ================================
-   READ BUTTON
-================================ */
-
-.hd-read-button {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 9px 18px;
-    border-radius: 25px;
-    font-size: 13px;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-
-/* ================================
-   CARD CATEGORY COLORS
-================================ */
-
-.hd-challenge-card {
-    border-color: #d8e4d7;
-}
-
-.hd-challenge-card .hd-read-button {
-    background: #dcebdc;
-    color: #52735a;
-}
-
-
-.hd-mystery-card {
-    border-color: #d5e4ec;
-}
-
-.hd-mystery-card .hd-read-button {
-    background: #dcecf4;
-    color: #52758a;
-}
-
-
-.hd-myth-card {
-    border-color: #ead9e0;
-}
-
-.hd-myth-card .hd-read-button {
-    background: #f1dfe7;
-    color: #8c6172;
-}
-
-
-.hd-career-card {
-    border-color: #eee1c5;
-}
-
-.hd-career-card .hd-read-button {
-    background: #f5e9c9;
-    color: #94733c;
-}
-
-
-/* ================================
-   COMING SOON CARD
-================================ */
-
-.hd-coming-soon {
-    background: #f8f5ed;
-    border: 2px dashed #d8d0c4;
-    border-radius: 22px;
-    padding: 28px;
-    text-align: center;
-    color: #81786f;
-}
-
-.hd-coming-soon-icon {
-    font-size: 35px;
-}
-
-.hd-coming-soon strong {
-    display: block;
-    color: #686057;
-    margin: 8px 0;
-}
-
-
-/* ================================
-   BOTTOM MESSAGE
-================================ */
-
-.hd-library-footer {
-    text-align: center;
-    margin-top: 70px;
-    padding: 35px 20px;
-    background: #eef4ed;
-    border-radius: 25px;
-}
-
-.hd-library-footer h3 {
-    color: #5f8068;
-    font-size: 24px;
-}
-
-.hd-library-footer p {
-    color: #6e665e;
-}
-
-
-/* ================================
-   MOBILE
-================================ */
-
-@media (max-width: 600px) {
-
-    .hd-library-header h1 {
-        font-size: 30px;
-    }
-
-    .hd-category-title h2 {
-        font-size: 27px;
-    }
-
-    .hd-article-grid {
-        grid-template-columns: 1fr;
-    }
-
-}
-
-</style>
-
-
-<div class="hd-library">
-
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
-<div class="hd-library-header">
-
-<div class="hd-library-logo">
-🧬🌱
-</div>
-
-<h1>
-The Health Decoded Library
-</h1>
-
-<p>
-Explore our challenges, mysteries, myths, careers, and reflections.
+<strong>
+Frequency:
+</strong>
+Monthly
 </p>
 
 </div>
 
 
+<!-- =======================================================
+2026 CHALLENGES
+======================================================= -->
 
-<!-- =====================================================
-     🌱 CHALLENGES
-===================================================== -->
+<div class="year-section">
 
-<section class="hd-category hd-challenges">
-
-<div class="hd-category-title">
-
-<h2>
-🌱 Challenges
-</h2>
-
-<p>
-Monthly health, wellness, and self-care challenges.
-</p>
-
-</div>
-
-
-<!-- =========================
-     2026
-========================= -->
-
-<div class="hd-year">
+<div class="year-title">
 
 <h3>
 2026
 </h3>
 
-<div class="hd-year-line"></div>
+<div class="year-line"></div>
 
 </div>
 
 
-<div class="hd-article-grid">
+<div class="article-grid">
 
 
-<!-- =================================================
-     CASE 001
-     ADD NEW 2026 CHALLENGES ABOVE THIS CARD
-================================================= -->
+<!-- =====================================================
+CASE 001 — SEPTEMBER 2026
+===================================================== -->
 
-<a
-class="hd-article-card hd-challenge-card"
-href="https://healthdecodedblog.blogspot.com/p/monthly-challenge-decoded-issues.html"
-target="_blank"
->
+<div class="article-card challenge">
 
-<div class="hd-card-icon">
-🌱
+<div class="article-label">
+September 1, 2026 • Case 001
 </div>
 
-<div class="hd-case-number">
-Case 001 • September 2026
-</div>
-
-<h3 class="hd-card-title">
-Feed One Knowledge, Learn Together
+<h3>
+🌱 Feed One Knowledge, Learn Together
 </h3>
 
-<div class="hd-card-date">
-September 1, 2026
-</div>
-
-<p class="hd-card-description">
-Take something you have learned from Health Decoded and share it with someone else. Teach, learn, and create a ripple effect through your community.
+<p>
+Take something you have learned from Health Decoded and teach it to
+someone else.
 </p>
 
-<span class="hd-read-button">
-View Challenge →
-</span>
+<button
+class="read-btn"
+onclick="openArticle('challenge001')">
 
-</a>
+Open Challenge →
 
+</button>
+
+</div>
+
+
+<!-- =====================================================
+NEW CHALLENGE ARTICLES GO HERE
+
+COPY THE ARTICLE CARD ABOVE FOR EACH NEW CHALLENGE.
+
+KEEP NEWEST ARTICLES AT THE TOP.
+===================================================== -->
+
+</div>
 
 </div>
 
 </section>
 
 
+<!-- =======================================================
+MYSTERIES
+======================================================= -->
 
-<!-- =====================================================
-     🔍 MYSTERIES
-===================================================== -->
+<section
+id="mysteries"
+class="page">
 
-<section class="hd-category hd-mysteries">
+<div class="section-title">
 
-<div class="hd-category-title">
+<div class="small">
+Mystery Decoded
+</div>
 
 <h2>
-🔍 Mysteries
+🔍 Healthcare Mysteries
 </h2>
 
 <p>
@@ -3616,78 +2063,107 @@ Exploring the science behind everyday health questions.
 </div>
 
 
-<!-- =========================
-     2026
-========================= -->
+<div class="card">
 
-<div class="hd-year">
+<h3>
+What is Mystery Decoded?
+</h3>
+
+<p>
+Healthcare Mystery Decoded investigates fascinating health-related
+questions that we experience in everyday life. Each article breaks down
+the science and explains the "why" behind the question.
+</p>
+
+<p>
+<strong>
+Frequency:
+</strong>
+Once per month
+</p>
+
+</div>
+
+
+<!-- =======================================================
+2026 MYSTERIES
+======================================================= -->
+
+<div class="year-section">
+
+<div class="year-title">
 
 <h3>
 2026
 </h3>
 
-<div class="hd-year-line"></div>
+<div class="year-line"></div>
 
 </div>
 
 
-<div class="hd-article-grid">
+<div class="article-grid">
 
 
-<!-- =================================================
-     CASE 002
-     ADD NEW 2026 MYSTERIES ABOVE THIS CARD
-================================================= -->
+<!-- =====================================================
+CASE 002 — SEPTEMBER 2026
+===================================================== -->
 
-<a
-class="hd-article-card hd-mystery-card"
-href="https://healthdecodedblog.blogspot.com/p/healthcare-mystery-decoded-issues.html"
-target="_blank"
->
+<div class="article-card mystery">
 
-<div class="hd-card-icon">
-🔍
+<div class="article-label">
+September 1, 2026 • Case 002
 </div>
 
-<div class="hd-case-number">
-Case 002 • September 2026
-</div>
-
-<h3 class="hd-card-title">
-Why Does Stress Make You Feel Sick?
+<h3>
+🔍 Why Does Stress Make You Feel Sick?
 </h3>
 
-<div class="hd-card-date">
-September 1, 2026
-</div>
-
-<p class="hd-card-description">
-Ever wondered why stress can make your stomach hurt, your heart race, or make it harder to sleep? Explore the science behind the body's stress response.
+<p>
+Discover what happens inside your body when stress affects the nervous
+system, hormones, muscles, digestion, and sleep.
 </p>
 
-<span class="hd-read-button">
-Read Mystery →
-</span>
+<button
+class="read-btn"
+onclick="openArticle('mystery002')">
 
-</a>
+Open Mystery →
 
+</button>
+
+</div>
+
+
+<!-- =====================================================
+NEW MYSTERY ARTICLES GO HERE
+
+KEEP THE NEWEST ARTICLE AT THE TOP.
+===================================================== -->
+
+</div>
 
 </div>
 
 </section>
 
 
+<!-- =======================================================
+MYTHS
+======================================================= -->
 
-<!-- =====================================================
-     ❌ MYTHS
-===================================================== -->
+<section
+id="myths"
+class="page">
 
-<section class="hd-category hd-myths">
+<div class="section-title">
 
-<div class="hd-category-title">
+<div class="small">
+Myth Decoded
+</div>
 
 <h2>
-❌ Myths
+❌ Healthcare Myths
 </h2>
 
 <p>
@@ -3697,176 +2173,1904 @@ Separating health facts from fiction.
 </div>
 
 
-<div class="hd-year">
+<div class="card">
+
+<h3>
+What is Myth Decoded?
+</h3>
+
+<p>
+Myth Decoded explores common health beliefs and investigates what
+scientific evidence actually says.
+</p>
+
+<p>
+<strong>
+Frequency:
+</strong>
+Monthly
+</p>
+
+<p>
+New articles will appear here as they are released.
+</p>
+
+</div>
+
+
+<div class="year-section">
+
+<div class="year-title">
 
 <h3>
 2026
 </h3>
 
-<div class="hd-year-line"></div>
+<div class="year-line"></div>
 
 </div>
 
 
-<div class="hd-article-grid">
+<div class="article-grid">
 
+<div class="article-card myth">
 
-<div class="hd-coming-soon">
-
-<div class="hd-coming-soon-icon">
-❌
+<div class="article-label">
+Coming Soon
 </div>
 
-<strong>
-Myth Decoded
-</strong>
+<h3>
+❌ September Myth Decoded
+</h3>
 
-Coming September 2026
+<p>
+The next Myth Decoded investigation will appear here.
+</p>
 
 </div>
 
+</div>
 
 </div>
 
 </section>
 
 
+<!-- =======================================================
+CAREERS
+======================================================= -->
 
-<!-- =====================================================
-     🩺 CAREERS
-===================================================== -->
+<section
+id="careers"
+class="page">
 
-<section class="hd-category hd-careers">
+<div class="section-title">
 
-<div class="hd-category-title">
-
-<h2>
-🩺 Careers
-</h2>
-
-<p>
-Discovering the people and professions behind healthcare.
-</p>
-
-</div>
-
-
-<div class="hd-year">
-
-<h3>
-2026
-</h3>
-
-<div class="hd-year-line"></div>
-
-</div>
-
-
-<div class="hd-article-grid">
-
-
-<div class="hd-coming-soon">
-
-<div class="hd-coming-soon-icon">
-👩🏽‍⚕️
-</div>
-
-<strong>
+<div class="small">
 Career Decoded
-</strong>
+</div>
 
-Coming September 2026
+<h2>
+🩺 Healthcare Careers
+</h2>
+
+<p>
+Discover the people behind healthcare.
+</p>
 
 </div>
 
+
+<div class="card">
+
+<h3>
+What is Career Decoded?
+</h3>
+
+<p>
+Career Decoded introduces readers to healthcare professions and the
+people who dedicate their work to helping others.
+</p>
+
+<p>
+<strong>
+Frequency:
+</strong>
+Monthly
+</p>
+
+</div>
+
+
+<div class="year-section">
+
+<div class="year-title">
+
+<h3>
+2026
+</h3>
+
+<div class="year-line"></div>
+
+</div>
+
+
+<div class="article-grid">
+
+<div class="article-card career">
+
+<div class="article-label">
+Coming Soon
+</div>
+
+<h3>
+🩺 September Career Decoded
+</h3>
+
+<p>
+New healthcare career features will appear here.
+</p>
+
+</div>
+
+</div>
 
 </div>
 
 </section>
 
 
+<!-- =======================================================
+REFLECTIONS
+======================================================= -->
 
-<!-- =====================================================
-     📖 REFLECTIONS
-===================================================== -->
+<section
+id="journal"
+class="page">
 
-<section class="hd-category hd-reflections">
+<div class="section-title">
 
-<div class="hd-category-title">
-
-<h2>
-📖 Reflections
-</h2>
-
-<p>
-Personal reflections, lessons, and growth from the Health Decoded community.
-</p>
-
-</div>
-
-
-<div class="hd-article-grid">
-
-
-<a
-class="hd-article-card"
-href="https://healthdecodedblog.blogspot.com/p/reflection-channel.html"
-target="_blank"
->
-
-<div class="hd-card-icon">
-📖
-</div>
-
-<div class="hd-case-number">
+<div class="small">
 Journal Decoded
 </div>
 
-<h3 class="hd-card-title">
-Reflection Journal
-</h3>
+<h2>
+📖 Reflection Channel
+</h2>
 
-<p class="hd-card-description">
-Share what you learned, how you participated, and how your Health Decoded journey has affected the way you think about health and wellness.
+<p>
+Personal reflections, lessons, and growth.
 </p>
 
-<span
-class="hd-read-button"
-style="background:#e5eee5;color:#5d7863;"
->
-Write a Reflection →
-</span>
+</div>
+
+
+<div class="journal-intro">
+
+<h3>
+💭 This space is yours.
+</h3>
+
+<p>
+Journal Decoded is where Health Decoded readers can share what they
+learned, what they did during a challenge, and how their experiences
+changed their thinking.
+</p>
+
+<p>
+You can reflect on challenges, health discoveries, articles, or anything
+you learned during your Health Decoded journey.
+</p>
+
+</div>
+
+
+<div class="comment-box">
+
+<h2>
+💬 Community Reflections
+</h2>
+
+<p>
+Share your experience and respond to other readers.
+</p>
+
+
+<!-- =====================================================
+WEBYNIZE COMMENT SYSTEM
+===================================================== -->
+
+<div
+class="wbnz-comments"
+data-webynize-id="12854">
+</div>
+
+<script
+defer
+src="https://widgets.webynize.com/comments.js">
+</script>
+
+
+</div>
+
+</section>
+
+
+<!-- =======================================================
+JOIN THE TEAM
+======================================================= -->
+
+<section
+id="team"
+class="page">
+
+<div class="section-title">
+
+<div class="small">
+Health Decoded
+</div>
+
+<h2>
+🤝 Join the Team
+</h2>
+
+<p>
+Become part of the Health Decoded community.
+</p>
+
+</div>
+
+
+<div class="volunteer-box">
+
+<h2>
+Become a Health Decoded Volunteer
+</h2>
+
+<p>
+Want to do more than read? Join Health Decoded as a volunteer and help
+create health education content for other curious learners.
+</p>
+
+
+<div class="role">
+
+<h3>
+📝 Health Article Writer
+</h3>
+
+<p>
+Create original articles for Health Decoded's health-focused pages,
+including:
+</p>
+
+<ul>
+
+<li>
+Health Myths
+</li>
+
+<li>
+Health Mysteries
+</li>
+
+</ul>
+
+<p>
+<strong>
+5 hours of community service
+</strong>
+will be given for one approved article under this role.
+</p>
+
+</div>
+
+
+<div class="role">
+
+<h3>
+🎤 Healthcare Career Interview Volunteer
+</h3>
+
+<p>
+Interested in healthcare careers? Volunteers can research a healthcare
+career, develop interview questions, contact a healthcare professional,
+and create a Career Decoded article.
+</p>
+
+<p>
+<strong>
+10 hours of community service
+</strong>
+will be given for one approved article under this role.
+</p>
+
+</div>
+
+
+<h2>
+How Volunteering Works
+</h2>
+
+<p>
+To become a volunteer, complete the Health Decoded Volunteer Application
+and Submission Form.
+</p>
+
+
+<a
+href="https://forms.gle/cKAZSyMg3qe4jg1a8"
+target="_blank"
+rel="noopener">
+
+Volunteer Application →
 
 </a>
 
 
+<p>
+Please read the full article formatting and submission guidelines before
+writing.
+</p>
+
+
+<a
+href="https://docs.google.com/document/d/1xA24Pm9DPYdQq-PtrU3hJc7MAys8WGyiUcg0zv6wjFA/edit?usp=sharing"
+target="_blank"
+rel="noopener">
+
+Read Volunteer Guidelines →
+
+</a>
+
+
+<h2>
+Volunteer Hours
+</h2>
+
+<p>
+Health Decoded volunteers should keep records of their completed articles,
+research, interviews, submission dates, publication confirmations, and
+hours.
+</p>
+
+<p>
+If hour verification is needed after approved work, contact:
+<strong>
+healthdecoded.blog@gmail.com
+</strong>
+</p>
+
+
+<div class="role">
+
+<strong>
+Official volunteering begins September 2026.
+</strong>
+
+</div>
+
 </div>
 
 </section>
 
 
+<!-- =======================================================
+CONNECT
+======================================================= -->
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<section
+id="connect"
+class="page">
 
-<div class="hd-library-footer">
+<div class="section-title">
 
-<h3>
-🌱 Keep Exploring
-</h3>
+<div class="small">
+Stay Connected
+</div>
+
+<h2>
+🌿 Connect With Health Decoded
+</h2>
+
+</div>
+
+
+<div class="connect">
+
+<h2>
+Stay Curious With Us
+</h2>
 
 <p>
-New Health Decoded cases will be added throughout the year.
+Follow Health Decoded for new articles, health discoveries,
+monthly challenges, and healthcare exploration.
 </p>
 
+
+<a
+href="https://linktr.ee/healthdecoded.blog"
+target="_blank"
+rel="noopener"
+class="primary-btn">
+
+Visit Our Linktree →
+
+</a>
+
+
 <p>
+📧 healthdecoded.blog@gmail.com
+</p>
+
+
+<p>
+Instagram & TikTok:
 <strong>
-Learn • Question • Discover • Share
+@healthdecoded.blog
 </strong>
 </p>
 
 </div>
 
+</section>
+
+
+<!-- =======================================================
+ARTICLE VIEWER
+======================================================= -->
+
+<section
+id="articleViewer"
+class="page">
+
+
+<button
+class="article-back"
+onclick="showPage(lastArticlePage)">
+
+← Back
+
+</button>
+
+
+<!-- =====================================================
+CASE 001 — CHALLENGE
+===================================================== -->
+
+<div
+id="challenge001"
+class="article-view">
+
+
+<div class="article-label">
+CHALLENGE DECODED • CASE 001
+</div>
+
+
+<h1>
+🌱 Feed One Knowledge, Learn Together
+</h1>
+
+
+<p>
+<strong>
+September 1, 2026
+</strong>
+</p>
+
+
+<h2>
+The Challenge
+</h2>
+
+
+<p>
+Hello and welcome to the first post and monthly challenge of Health
+Decoded!
+</p>
+
+
+<p>
+Knowledge is something meant to be shared, especially when it comes to
+our health and well-being.
+</p>
+
+
+<p>
+This month, Health Decoded is challenging readers to take something they
+have learned from Health Decoded and teach it to someone else.
+</p>
+
+
+<p>
+Whether it is a health fact, a wellness tip, information about the human
+body, or something that changed the way you think about healthcare, your
+knowledge has the power to create a ripple effect.
+</p>
+
+
+<h2>
+🧬 The Challenge
+</h2>
+
+
+<p>
+Choose
+<strong>
+one thing you have learned from Health Decoded
+</strong>
+and share it with someone in your community.
+</p>
+
+
+<div class="card">
+
+<p>
+📢
+<strong>
+PSA:
+</strong>
+
+The first Healthcare Mystery issue is also available!
+</p>
+
+
+<p>
+<strong>
+Case 002: Why Does Stress Make You Feel Sick?
+</strong>
+</p>
+
+
+<button
+class="read-btn"
+onclick="openArticle('mystery002')">
+
+Read Mystery →
+
+</button>
 
 </div>
+
+
+<h3>
+You can teach:
+</h3>
+
+
+<ul>
+
+<li>
+A friend
+</li>
+
+<li>
+A family member
+</li>
+
+<li>
+A classmate
+</li>
+
+<li>
+A younger sibling
+</li>
+
+<li>
+Someone who is curious about health
+</li>
+
+</ul>
+
+
+<p>
+Your lesson can be a conversation, presentation, written explanation,
+or any creative way you choose to share knowledge.
+</p>
+
+
+<h2>
+Why Should I Participate?
+</h2>
+
+
+<p>
+Healthcare starts with understanding. When more people have access to
+accurate health information, communities become stronger.
+</p>
+
+
+<ul>
+
+<li>
+Learn more about the human body
+</li>
+
+<li>
+Make informed decisions
+</li>
+
+<li>
+Stay curious about science and wellness
+</li>
+
+</ul>
+
+
+<div class="card">
+
+<h2>
+📝 Submit Your Reflection
+</h2>
+
+<p>
+After completing the challenge, share your experience in the Reflection
+Channel.
+</p>
+
+<p>
+You can write about what you did, what you taught, what you learned,
+and how the experience affected you.
+</p>
+
+<p>
+You can also share pictures if you are comfortable doing so through
+Health Decoded's official social media or email.
+</p>
+
+</div>
+
+
+<div
+style="text-align:center;margin-top:35px">
+
+<h2>
+Share what you know. 🌱
+</h2>
+
+<p>
+<strong>
+Learn together. Grow together.
+</strong>
+</p>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+CASE 002 — MYSTERY
+===================================================== -->
+
+<div
+id="mystery002"
+class="article-view">
+
+
+<div class="article-label">
+MYSTERY DECODED • CASE 002
+</div>
+
+
+<h1>
+🔍 Why Does Stress Make You Feel Sick?
+</h1>
+
+
+<p>
+<strong>
+September 1, 2026
+</strong>
+</p>
+
+
+<!-- =====================================================
+IMAGE 1 — AFTER TITLE
+===================================================== -->
+
+<div class="mystery-image">
+
+<iframe
+src="https://assets.pinterest.com/ext/embed.html?id=940830178418737547"
+height="354"
+width="450"
+frameborder="0"
+scrolling="no">
+</iframe>
+
+</div>
+
+
+<h2>
+Introduction
+</h2>
+
+
+<!-- =====================================================
+IMAGE 2 — INTRO / FLOATING LEFT
+===================================================== -->
+
+<div class="clearfix">
+
+<div class="mystery-float-left">
+
+<iframe
+src="https://assets.pinterest.com/ext/embed.html?id=29695678787969612"
+height="419"
+width="345"
+frameborder="0"
+scrolling="no">
+</iframe>
+
+</div>
+
+
+<p>
+Have you ever felt nauseous or had a racing heart before an important
+exam, event, or presentation? This happens because your brain and body
+are constantly communicating.
+</p>
+
+</div>
+
+
+<h2>
+What Is Stress?
+</h2>
+
+
+<p>
+Stress is a natural response from the body when faced with a challenge
+or situation called a stressor.
+</p>
+
+
+<p>
+When the brain senses stress, it activates the stress response, which
+prepares the body to react by changing activity in the nervous system,
+hormones, and other body systems.
+</p>
+
+
+<p>
+Short-term stress can help a person remain focused and alert. However,
+stress that continues for a long time can affect physical and mental
+well-being.
+</p>
+
+
+<h2>
+What's Happening in Your Body?
+</h2>
+
+
+<!-- =====================================================
+IMAGE 3 — WHAT IS STRESS / RIGHT SIDE
+===================================================== -->
+
+<div class="clearfix">
+
+<div class="mystery-float-right">
+
+<iframe
+src="https://assets.pinterest.com/ext/embed.html?id=279856564341165639"
+height="336"
+width="236"
+frameborder="0"
+scrolling="no">
+</iframe>
+
+</div>
+
+
+<h2>
+Your Brain & Nervous System
+</h2>
+
+
+<p>
+When the brain detects stress, it activates the sympathetic nervous
+system, commonly associated with the body's fight-or-flight response.
+</p>
+
+
+<p>
+This system helps control functions such as heart rate, breathing, and
+alertness.
+</p>
+
+
+<p>
+When sympathetic nervous system activity increases, heart rate and
+breathing can increase and muscles can become tense.
+</p>
+
+</div>
+
+
+<!-- =====================================================
+IMAGE 4 — BRAIN & NERVOUS SYSTEM
+===================================================== -->
+
+<div class="clearfix">
+
+<div class="mystery-float-right">
+
+<iframe
+src="https://assets.pinterest.com/ext/embed.html?id=679832506281081287"
+height="336"
+width="236"
+frameborder="0"
+scrolling="no">
+</iframe>
+
+</div>
+
+
+<h2>
+Your HPA Axis & Cortisol
+</h2>
+
+
+<p>
+The HPA axis is a communication system involving the hypothalamus,
+pituitary gland, and adrenal glands.
+</p>
+
+
+<p>
+These structures help regulate the release of cortisol, a hormone
+involved in the body's response to stress.
+</p>
+
+
+<p>
+Cortisol also plays roles in energy regulation and metabolism.
+</p>
+
+</div>
+
+
+<!-- =====================================================
+IMAGE 5 — HPA AXIS / FULL IMAGE
+===================================================== -->
+
+<div class="mystery-image">
+
+<iframe
+src="https://assets.pinterest.com/ext/embed.html?id=1122311169754383322"
+height="714"
+width="345"
+frameborder="0"
+scrolling="no">
+</iframe>
+
+</div>
+
+
+<h2>
+Your Muscles
+</h2>
+
+
+<p>
+Stress can cause muscle tension. If stress continues for a long time,
+that tension may contribute to headaches, muscle aches, and jaw tension.
+</p>
+
+
+<!-- =====================================================
+IMAGE 6 — STOMACH / RIGHT SIDE
+===================================================== -->
+
+<div class="clearfix">
+
+<div class="mystery-float-right">
+
+<iframe
+src="https://assets.pinterest.com/ext/embed.html?id=99360735517276002"
+height="218"
+width="236"
+frameborder="0"
+scrolling="no">
+</iframe>
+
+</div>
+
+
+<h2>
+Your Stomach
+</h2>
+
+
+<p>
+The brain communicates with the digestive system through the
+gut-brain axis, a two-way communication network between the brain and
+gastrointestinal system.
+</p>
+
+
+<p>
+Because of this connection, stress can affect digestion and may
+contribute to symptoms such as nausea, stomach discomfort, diarrhea,
+constipation, or changes in appetite.
+</p>
+
+</div>
+
+
+<!-- =====================================================
+IMAGE 7 — SLEEP / RIGHT SIDE
+===================================================== -->
+
+<div class="clearfix">
+
+<div class="mystery-float-right">
+
+<iframe
+src="https://assets.pinterest.com/ext/embed.html?id=1011198922593146980"
+height="454"
+width="236"
+frameborder="0"
+scrolling="no">
+</iframe>
+
+</div>
+
+
+<h2>
+Your Sleep
+</h2>
+
+
+<p>
+Stress can make it difficult for the brain and body to relax, which can
+interfere with falling asleep or staying asleep.
+</p>
+
+
+<p>
+Poor sleep can also make managing stress more difficult, creating a
+cycle that can be difficult to break.
+</p>
+
+</div>
+
+
+<!-- =====================================================
+IMAGE 8 — MEME
+===================================================== -->
+
+<div class="mystery-image">
+
+<iframe
+src="https://assets.pinterest.com/ext/embed.html?id=1124492600732033639"
+height="414"
+width="345"
+frameborder="0"
+scrolling="no">
+</iframe>
+
+</div>
+
+
+<h2>
+The Evidence Says…
+</h2>
+
+
+<p>
+Organizations including the National Institutes of Health, National
+Center for Complementary and Integrative Health, and American
+Psychological Association have examined connections between stress and
+physical and mental health.
+</p>
+
+
+<p>
+Research shows that stress can affect multiple systems of the body,
+including the nervous, digestive, cardiovascular, and immune systems.
+</p>
+
+
+<p>
+Not every physical symptom is caused by stress. If symptoms persist or
+interfere with everyday life, it is important to talk with a healthcare
+professional.
+</p>
+
+
+<h2>
+Quick Fun Facts
+</h2>
+
+
+<ul>
+
+<li>
+Stress can cause hiccups.
+</li>
+
+<li>
+Researchers are still studying stress-related yawning.
+</li>
+
+<li>
+Your pupils can dilate during stress.
+</li>
+
+</ul>
+
+
+<h2>
+What Should You Remember?
+</h2>
+
+
+<p>
+Stress can produce physical reactions because the brain and body
+communicate closely. Short-term stress is a normal response, while
+long-lasting stress can affect several body systems.
+</p>
+
+
+<h2>
+Sources
+</h2>
+
+
+<ul>
+
+<li>
+
+<a
+href="https://www.nccih.nih.gov/health/stress"
+target="_blank"
+rel="noopener">
+
+National Center for Complementary and Integrative Health — Stress
+
+</a>
+
+</li>
+
+
+<li>
+
+<a
+href="https://www.nimh.nih.gov/health/publications/so-stressed-out-infographic"
+target="_blank"
+rel="noopener">
+
+National Institute of Mental Health — I'm So Stressed Out!
+
+</a>
+
+</li>
+
+
+<li>
+
+<a
+href="https://www.nccih.nih.gov/health/tips/things-to-know-about-relaxation-techniques-for-stress"
+target="_blank"
+rel="noopener">
+
+NCCIH — Relaxation Techniques
+
+</a>
+
+</li>
+
+
+<li>
+
+<a
+href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5736941/"
+target="_blank"
+rel="noopener">
+
+PubMed Central — Stress & the Gut-Brain Axis
+
+</a>
+
+</li>
+
+</ul>
+
+
+<div class="card">
+
+<h2>
+💗 About the Author
+</h2>
+
+<p>
+
+<strong>
+Makayla Brown
+</strong>
+
+<br>
+
+Founder of Health Decoded
+
+<br>
+
+11th Grade
+
+</p>
+
+
+<p>
+Health Decoded is a student-led project exploring the science behind
+everyday health.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+NEW ARTICLE CONTENT GOES HERE
+
+WHEN WE CREATE CASE 003, CASE 004, ETC.,
+THE NEW ARTICLE CAN BE ADDED ABOVE CASE 002.
+
+THE ARTICLE CARD GOES IN ITS CATEGORY PAGE,
+AND THE FULL ARTICLE GOES HERE.
+
+===================================================== -->
+
+
+</section>
+
+
+<!-- =======================================================
+FOOTER
+THIS IS INTENTIONALLY THE LAST MAJOR ELEMENT
+SO IT STAYS AT THE ABSOLUTE BOTTOM.
+======================================================= -->
+
+<footer>
+
+<p>
+<strong>
+Health Decoded 🧬
+</strong>
+</p>
+
+
+<p>
+Exploring the science behind everyday health.
+</p>
+
+
+<p>
+Founded by Makayla Brown
+</p>
+
+
+<p>
+© 2026 Health Decoded
+</p>
+
+</footer>
+
+
+<!-- =======================================================
+JAVASCRIPT
+======================================================= -->
+
+<script>
+
+
+/* =========================================================
+PAGE NAVIGATION
+========================================================= */
+
+let lastArticlePage = "home";
+
+
+function showPage(page){
+
+document
+.querySelectorAll(".page")
+.forEach(function(section){
+
+section.classList.remove("active");
+
+});
+
+
+let selected =
+document.getElementById(page);
+
+
+if(selected){
+
+selected.classList.add("active");
+
+}
+
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+}
+
+
+/* =========================================================
+ARTICLE SYSTEM
+========================================================= */
+
+function openArticle(article){
+
+let viewer =
+document.getElementById("articleViewer");
+
+
+document
+.querySelectorAll(".page")
+.forEach(function(section){
+
+section.classList.remove("active");
+
+});
+
+
+viewer.classList.add("active");
+
+
+document
+.querySelectorAll(".article-view")
+.forEach(function(item){
+
+item.classList.remove("active");
+
+});
+
+
+let selected =
+document.getElementById(article);
+
+
+if(selected){
+
+selected.classList.add("active");
+
+}
+
+
+if(article.startsWith("challenge")){
+
+lastArticlePage="challenges";
+
+}
+
+else if(article.startsWith("mystery")){
+
+lastArticlePage="mysteries";
+
+}
+
+else if(article.startsWith("myth")){
+
+lastArticlePage="myths";
+
+}
+
+else if(article.startsWith("career")){
+
+lastArticlePage="careers";
+
+}
+
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+}
+
+
+/* =========================================================
+WELLNESS BUDDY
+========================================================= */
+
+let health=70;
+
+let happiness=70;
+
+let energy=70;
+
+
+function updateBuddy(){
+
+document
+.getElementById("healthBar")
+.style.width=health+"%";
+
+
+document
+.getElementById("happyBar")
+.style.width=happiness+"%";
+
+
+document
+.getElementById("energyBar")
+.style.width=energy+"%";
+
+}
+
+
+function buddyMessage(text){
+
+document
+.getElementById("buddyMessage")
+.innerHTML=text;
+
+}
+
+
+function feedBuddy(){
+
+health=Math.min(100,health+5);
+
+happiness=Math.min(100,happiness+10);
+
+energy=Math.max(0,energy-5);
+
+updateBuddy();
+
+buddyMessage(
+"Your buddy enjoyed a healthy snack! 🍎"
+);
+
+}
+
+
+function waterBuddy(){
+
+health=Math.min(100,health+10);
+
+energy=Math.min(100,energy+5);
+
+updateBuddy();
+
+buddyMessage(
+"Your buddy feels refreshed! 💧"
+);
+
+}
+
+
+function exerciseBuddy(){
+
+happiness=Math.min(100,happiness+10);
+
+energy=Math.max(0,energy-10);
+
+updateBuddy();
+
+buddyMessage(
+"Your buddy got moving! 🏃"
+);
+
+}
+
+
+/* =========================================================
+DAILY DOSE
+========================================================= */
+
+const messages=[
+
+"Small healthy habits can add up over time. 🌱",
+
+"Learning about health can help you ask better questions. 🧬",
+
+"Stay curious about how your body works. 💚",
+
+"Every question is an opportunity to learn something new. ✨",
+
+"Your health knowledge can create a ripple effect. 💗"
+
+];
+
+
+function generateMessage(){
+
+let random =
+Math.floor(
+Math.random()*messages.length
+);
+
+
+document
+.getElementById("dailyMessage")
+.innerHTML =
+messages[random];
+
+}
+
+
+/* =========================================================
+WELLNESS WHEEL
+========================================================= */
+
+const wellnessIdeas=[
+
+"💧 Take a water break",
+
+"📚 Learn one health fact",
+
+"🧘 Take a quiet moment",
+
+"🚶 Take a short walk",
+
+"💚 Do something that helps you relax",
+
+"🔍 Read a Health Decoded article"
+
+];
+
+
+function spinWheel(){
+
+let random =
+Math.floor(
+Math.random()*wellnessIdeas.length
+);
+
+
+document
+.getElementById("wheelResult")
+.innerHTML =
+wellnessIdeas[random];
+
+}
+
+
+/* =========================================================
+MEDICAL MYSTERY GAME
+========================================================= */
+
+const gameMysteries=[
+
+{
+
+question:
+"I pump blood throughout the body. What am I?",
+
+answers:[
+"🫁 Lungs",
+"❤️ Heart",
+"🧠 Brain",
+"🦴 Bones"
+],
+
+correct:1
+
+},
+
+{
+
+question:
+"I help bring oxygen into the body. What am I?",
+
+answers:[
+"🫁 Lungs",
+"❤️ Heart",
+"🦷 Teeth",
+"🦴 Bones"
+],
+
+correct:0
+
+},
+
+{
+
+question:
+"I control thoughts, memories, and many body functions. What am I?",
+
+answers:[
+"🧠 Brain",
+"❤️ Heart",
+"🫁 Lungs",
+"🦴 Bones"
+],
+
+correct:0
+
+},
+
+{
+
+question:
+"I help protect the body from germs and infections. What system am I?",
+
+answers:[
+"Digestive System",
+"Immune System",
+"Skeletal System",
+"Muscular System"
+],
+
+correct:1
+
+}
+
+];
+
+
+let gameMysteryIndex=0;
+
+
+function loadGameMystery(){
+
+let mystery =
+gameMysteries[gameMysteryIndex];
+
+
+document
+.getElementById("mysteryGameQuestion")
+.innerHTML =
+mystery.question;
+
+
+let area =
+document.getElementById("mysteryAnswers");
+
+
+area.innerHTML="";
+
+
+mystery.answers.forEach(
+function(answer,index){
+
+
+let button =
+document.createElement("button");
+
+
+button.className =
+"game-button";
+
+
+button.innerHTML =
+answer;
+
+
+button.onclick=function(){
+
+
+if(index===mystery.correct){
+
+document
+.getElementById("mysteryGameResult")
+.innerHTML =
+"✅ Correct! Mystery decoded!";
+
+}
+
+else{
+
+document
+.getElementById("mysteryGameResult")
+.innerHTML =
+"❌ Not quite. Keep learning!";
+
+}
+
+
+};
+
+
+area.appendChild(button);
+
+
+});
+
+}
+
+
+function nextGameMystery(){
+
+gameMysteryIndex++;
+
+
+if(
+gameMysteryIndex>=gameMysteries.length
+){
+
+gameMysteryIndex=0;
+
+}
+
+
+document
+.getElementById("mysteryGameResult")
+.innerHTML =
+"Choose an answer!";
+
+
+loadGameMystery();
+
+}
+
+
+/* =========================================================
+HEALTH QUIZ
+========================================================= */
+
+const quizQuestions=[
+
+{
+
+question:
+"How much sleep do teenagers generally need?",
+
+answers:[
+"4–5 hours",
+"8–10 hours",
+"12–14 hours",
+"2 hours"
+],
+
+correct:1
+
+},
+
+{
+
+question:
+"Which organ pumps blood?",
+
+answers:[
+"Lungs",
+"Brain",
+"Heart",
+"Kidney"
+],
+
+correct:2
+
+},
+
+{
+
+question:
+"Which nutrient helps build and repair tissues?",
+
+answers:[
+"Protein",
+"Water",
+"Sugar",
+"Salt"
+],
+
+correct:0
+
+},
+
+{
+
+question:
+"Which habit supports mental wellness?",
+
+answers:[
+"Ignoring stress",
+"Getting enough rest",
+"Never taking breaks",
+"Skipping meals"
+],
+
+correct:1
+
+}
+
+];
+
+
+let quizIndex=0;
+
+let quizScore=0;
+
+
+function loadQuiz(){
+
+let question =
+quizQuestions[quizIndex];
+
+
+document
+.getElementById("quizQuestion")
+.innerHTML =
+question.question;
+
+
+let area =
+document.getElementById("quizAnswers");
+
+
+area.innerHTML="";
+
+
+question.answers.forEach(
+function(answer,index){
+
+
+let button =
+document.createElement("button");
+
+
+button.className =
+"game-button";
+
+
+button.innerHTML =
+answer;
+
+
+button.onclick=function(){
+
+
+if(index===question.correct){
+
+quizScore++;
+
+
+document
+.getElementById("quizScore")
+.innerHTML =
+quizScore;
+
+
+document
+.getElementById("quizResult")
+.innerHTML =
+"✅ Correct!";
+
+}
+
+else{
+
+document
+.getElementById("quizResult")
+.innerHTML =
+"❌ Try again!";
+
+}
+
+};
+
+
+area.appendChild(button);
+
+});
+
+}
+
+
+function nextQuizQuestion(){
+
+quizIndex++;
+
+
+if(
+quizIndex>=quizQuestions.length
+){
+
+quizIndex=0;
+
+quizScore=0;
+
+
+document
+.getElementById("quizScore")
+.innerHTML=0;
+
+}
+
+
+document
+.getElementById("quizResult")
+.innerHTML =
+"Choose an answer!";
+
+
+loadQuiz();
+
+}
+
+
+/* =========================================================
+POLL
+========================================================= */
+
+function votePoll(choice){
+
+let names={
+
+mysteries:"🔍 Mysteries",
+
+myths:"❌ Myths",
+
+careers:"🩺 Careers",
+
+challenges:"🌱 Challenges"
+
+};
+
+
+document
+.getElementById("pollResult")
+.innerHTML =
+"You voted for <strong>"
++names[choice]+
+"</strong>! 💗";
+
+}
+
+
+/* =========================================================
+ESCAPE ROOM
+========================================================= */
+
+function checkEscape(){
+
+let answer =
+document
+.getElementById("escapeAnswer")
+.value;
+
+
+if(answer==="4"){
+
+document
+.getElementById("escapeResult")
+.innerHTML =
+"🔓 UNLOCKED! You solved the first clue!";
+
+}
+
+else{
+
+document
+.getElementById("escapeResult")
+.innerHTML =
+"🔒 Not quite! Think about the chambers of the heart.";
+
+}
+
+}
+
+
+/* =========================================================
+START GAMES
+========================================================= */
+
+loadGameMystery();
+
+loadQuiz();
+
+
+</script>
+
+
+</body>
+</html>
